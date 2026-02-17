@@ -87,7 +87,7 @@
 														</div>
 														<div class="clinic-booking">
 															<div class="clinic-btn">
-																<a class="apt-btn" href="vendor-dashboard.html">View Profile</a>
+																<a class="apt-btn" href="{{url('edit-vendor/'.$vendor->id)}}">Edit Profile</a>
 															</div>
 														</div>
 													</div>

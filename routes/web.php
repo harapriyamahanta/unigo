@@ -24,7 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/store-subcategories', [CategoryController::class, 'storesubcategory'])->name('subcategory.store');
     Route::get('/vendors', [VendorController::class, 'list'])->name('vendor.list');
     Route::get('/create-vendor', [VendorController::class, 'create'])->name('vendor.create');
+    Route::get('/edit-vendor/{id}', [VendorController::class, 'edit'])->name('vendor.edit');
     Route::post('/store-vendor', [VendorController::class, 'store'])->name('vendor.store');
+    Route::post('/update-vendor/{id}', [VendorController::class, 'update'])->name('vendor.update');
     Route::get('/locations', [LocationController::class, 'list'])->name('location.list');
     Route::post('/store-location', [LocationController::class, 'store'])->name('location.store');
 });

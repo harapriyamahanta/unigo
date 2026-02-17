@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\SubCategory;
+use App\Models\UserAddress;
+use App\Models\UserSubCategory;
 use App\Models\UserDetail;
 use Exception;
 use Illuminate\Support\Facades\Hash;
@@ -68,27 +70,66 @@ class VendorController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
-    {
-        return view('profile.edit', [
-            'user' => $request->user(),
+    public function edit(Request $request,$id): View
+    {   
+        $user = User::with('userdetail','useraddress','usersubcategory')->find($id);
+        $subcategories = SubCategory::where('category_id',$user->userdetail->category_id)->get();
+        return view('vendor.edit', [
+            'vendor' => $user,
+            'subcategories' => $subcategories,
+            'usersubcat' => $user?->usersubcategory->pluck('subcategory_id')->toArray(),
+            'page' => 'Edit Vendor',
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+    public function update(Request $request,$id): RedirectResponse
+    {   
+        if($request->section == 'userdetail'){
+            $userdetail = UserDetail::where('user_id',$id)->first();
+            if(!$userdetail){
+            $userdetail = new UserDetail();
+            $userdetail->user_id = $id;
+            }
+            $userdetail->first_name = $request->first_name;
+            $userdetail->last_name = $request->last_name;
+            $userdetail->dob = $request->dob;
+            $userdetail->gender = $request->gender;
+            $userdetail->phone = $request->phone;
+            $userdetail->save();
         }
 
-        $request->user()->save();
+         if($request->section == 'address'){
+            $useraddress = UserAddress::where('user_id',$id)->first();
+            if(!$useraddress){
+            $useraddress = new UserAddress();
+            $useraddress->user_id = $id;
+            }
+            $useraddress->address = $request->address;
+            $useraddress->city = $request->city;
+            $useraddress->state = $request->state;
+            $useraddress->district = $request->country;
+            $useraddress->pincode = $request->pincode;
+            $useraddress->save();
+        }
+        if($request->section == 'subcategory'){
+            //dd($request->all());
+             $userassociatesubcategory = UserSubCategory::where('user_id',$id)->delete();
+             foreach($request->userSubcat as $key =>  $subcat){
+                $userassociatesubcategory = new UserSubCategory();
+                $userassociatesubcategory->user_id = $id;
+                $userassociatesubcategory->category_id = $request->user_category_id;
+                $userassociatesubcategory->subcategory_id = $subcat;
+                $userassociatesubcategory->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+             }
+            
+
+        }
+
+        return Redirect::to('edit-vendor/'.$id)->with('status', 'profile-updated');
     }
 
     /**

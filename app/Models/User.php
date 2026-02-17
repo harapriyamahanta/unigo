@@ -51,6 +51,9 @@ class User extends Authenticatable
     public function useraddress(){
         return $this->hasOne('App\Models\UserAddress', 'user_id');
     }
+     public function usersubcategory(){
+        return $this->hasOne('App\Models\UserSubCategory', 'user_id');
+    }
     
     
 }
