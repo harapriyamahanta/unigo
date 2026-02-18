@@ -8,34 +8,34 @@
     <title>FixiGO - Login</title>
 
     <!-- Favicons -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.png')}}">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
 
     <!-- Circle CSS -->
-    <link rel="stylesheet" href="assets/css/circle.css">
+    <link rel="stylesheet" href="{{asset('assets/css/circle.css')}}">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
 </head>
     <body>
     <div class="main-wrapper">
-                {{ $slot }}
+               @yield('content')
     </div>
         
     <!-- jQuery JS -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="asset('assets/js/jquery-3.6.0.min.js')}}"></script>
     
     <!-- Bootstrap Core JS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
      <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    <script src="asset('assets/js/script.js')}}"></script>
     </body>
 </html>

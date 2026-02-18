@@ -77,7 +77,7 @@ class VendorController extends Controller
         return view('vendor.edit', [
             'vendor' => $user,
             'subcategories' => $subcategories,
-            'usersubcat' => $user?->usersubcategory->pluck('subcategory_id')->toArray(),
+            'usersubcat' => $user?->usersubcategory ?  $user?->usersubcategory?->pluck('subcategory_id')?->toArray():[],
             'page' => 'Edit Vendor',
         ]);
     }
