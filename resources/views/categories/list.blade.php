@@ -39,7 +39,7 @@
 											  	<ul>
 												    <li class="item-content item-input">
 												      	<div class="item-col">
-												        	<div class="item-title item-label">Username <span>*</span></div>
+												        	<div class="item-title item-label">Name <span>*</span></div>
 												        	<div class="item-input-wrap">
 												          		<input type="text" name="category" required>
 												          		<span class="input-clear-button"></span>
@@ -88,10 +88,10 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-                                        <a href="#" class="dropdown-item">Edit</a>
-                                        <a href="#" class="dropdown-item">Delete</a>
+                                        <a href="{{url('/category/edit/'.$cat->id)}}" class="dropdown-item">Edit</a>
+                                        <a href="{{url('/category/delete/'.$cat->id)}}" class="dropdown-item">Delete</a>
                                         <a href="{{url('/create-vendor?category='.$cat->id)}}" class="dropdown-item">Onboard Vendor</a>
-                                        <a href="sub-categories.html" class="dropdown-item">Add Sub Category</a>
+                                        <a href="{{url('/sub-categories/'.$cat->id)}}" class="dropdown-item">Add Sub Category</a>
                                     </div>
                                     </div>
                                 </div>

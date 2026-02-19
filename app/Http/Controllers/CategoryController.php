@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Category;
 use App\Models\SubCategory;
-
+use App\Models\UserDetail;
 
 class CategoryController extends Controller
 {
@@ -56,47 +56,43 @@ class CategoryController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+     /**
+     * Display the user's profile form.
+     */
+    public function edit(Request $request,$id): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        $category = Category::where('id',$id)->first();
+        return view('categories.edit', [
+            'category' => $category,
+            'page' => 'Edit Category'
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request,$id): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $location = Category::where('id',$id)->first();
+        $location->name = $request->category;
+        $location->save();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect('/categories')->with('status', 'profile-updated');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request,$id): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+        $category = Category::find($id);
+        $isexistUser = UserDetail::where('category_id',$id)->count();
+        if(!$isexistUser){
+            $category->delete();
+        }
+        
+        //->delete();
 
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return Redirect::to('/categories');
     }
 }

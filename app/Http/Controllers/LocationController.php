@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,8 @@ class LocationController extends Controller
     {
         $user = new Location();
         $user->address = $request->address;
-        $user->state = $request->state;
-        $user->country = $request->country;
+        //$user->state = $request->state;
+        //$user->country = $request->country;
         $user->city = $request->city;
         $user->pincode = $request->pincode;
         $user->save();
@@ -38,70 +39,41 @@ class LocationController extends Controller
         
     }
 
-    public function storesubcategory(Request $request)
-    {
-        $subcategory = new SubCategory();
-        $subcategory->name = $request->subcategory;
-        $subcategory->category_id = $request->category;
-        $subcategory->save();
-        return redirect('/sub-categories/'.$request->category);
-        
-    }
-
-    public function subcategorylist(Request $request,$categoryId): View
-    {   
-        $subcategories = SubCategory::where('category_id',$categoryId)->get();
-        $categories = Category::find($categoryId);
-        return view('subcategories.list', [
-            'subcategories' => $subcategories,
-            'category' => $categories,
-            'page' => $categories->name
-        ]);
-    }
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request,$id): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        $locations = Location::where('id',$id)->first();
+        return view('location.edit', [
+            'locations' => $locations,
+            'page' => 'Edit Location'
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request,$id): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $location = Location::where('id',$id)->first();
+        $location->address = $request->address;
+        //$location->state = $request->state;
+        //$location->country = $request->country;
+        $location->city = $request->city;
+        $location->pincode = $request->pincode;
+        $location->save();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect('/locations')->with('status', 'profile-updated');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request,$id): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+        $location = Location::find($id)->delete();
 
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return Redirect::to('/locations');
     }
 }

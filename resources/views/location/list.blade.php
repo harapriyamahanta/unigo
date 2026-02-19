@@ -25,76 +25,7 @@
                 <div class="tab-content">
 
 			 		<div class="tab-pane" id="about-me">
-				    	<!-- <div class="panel panel-default">
-				    		<div id="collapseOne" class="panel-collapse collapse in">
-				          		<div class="panel-body">
-				          			<div class="setting-widget">
-										<div class="list no-hairlines-md">
-											
-											
-											<form action="{{url('/store-location')}}" method="post">
-                                                @csrf
-											  	
-											  	<ul>
-												    
-												   
-                                                    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">Address Line 1</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="address">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">City</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="city">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">State / Province</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="state">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">Country</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="country">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">Postal Code</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="pincode">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-												    <li class="bottom-button">
-												    	<button  class="btn">Next</button>
-												    </li>
-											  	</ul>
-										  	
-										  	</form>
-										</div>
-								    </div>
-				          		</div>
-				          	</div>
-				    	</div> -->
+				    	
 						<div class="panel panel-default">
 				        	<div id="collapseTwo" class="panel-collapse collapse">
 				          		<div class="panel-body">
@@ -124,24 +55,7 @@
 											        	</div>
 											      	</div>
 											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">State</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="state" required>
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">District</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="country" required>
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
+											   
 											    <li class="item-content item-input">
 											      	<div class="item-col">
 											        	<div class="item-title item-label">Postal Code</div>
@@ -190,7 +104,7 @@
                                 </div>
                                 <div class="item-cat">
                                     <div class="item-title">
-                                        {{$loc->address}}, {{$loc->city}}, {{$loc->state}}, {{$loc->country}}, {{$loc->pincode}}
+                                        {{$loc->address}}, {{$loc->city}}, {{$loc->pincode}}
                                     </div>
                                 </div>
                                 <div class="right d-flex">                    
@@ -198,8 +112,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-                                        <a href="#" class="dropdown-item">Edit</a>
-                                        <a href="#" class="dropdown-item">Delete</a>
+                                        <a href="{{url('/locations/edit/'.$loc->id)}}" class="dropdown-item">Edit</a>
+                                        <a href="{{url('/locations/delete/'.$loc->id)}}" class="dropdown-item">Delete</a>
                                     </div>
                                 </div>
                             </span>
