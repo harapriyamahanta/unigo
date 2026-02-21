@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/sub-categories/{id}', [CategoryController::class, 'subcategorylist'])->name('subcategory.list');
     Route::post('/store-subcategories', [CategoryController::class, 'storesubcategory'])->name('subcategory.store');
      Route::get('/sub-category/delete/{id}', [CategoryController::class, 'subcatdestroy'])->name('subcategory.delete');
-    Route::get('/sub-categry/edit/{id}', [CategoryController::class, 'subcatedit'])->name('subcategory.edit');
+    Route::get('/sub-category/edit/{id}', [CategoryController::class, 'subcatedit'])->name('subcategory.edit');
     Route::post('/sub-category/update/{id}', [CategoryController::class, 'subcatupdate'])->name('subcategory.update');
     Route::get('/vendors', [VendorController::class, 'list'])->name('vendor.list');
     Route::get('/create-vendor', [VendorController::class, 'create'])->name('vendor.create');

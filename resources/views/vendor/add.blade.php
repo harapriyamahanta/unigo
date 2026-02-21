@@ -8,9 +8,9 @@
 				<div class="tab-col">
 				 	<ul class="nav nav-tabs">
 					    <li><a href="#basic-info" data-bs-toggle="tab" class="active">Basic Info</a></li>
-					    <li><a href="#contact-details" data-bs-toggle="tab">Contact Details</a></li>
-					    <li><a href="#categories" data-bs-toggle="tab">Categories</a></li>
-					    <li><a href="#vehicle" data-bs-toggle="tab">Vehicle Details</a></li>
+					    <li><a href="#contact-details1"  data-bs-toggle="tab">Contact Details</a></li>
+					    <li><a href="#categories1" data-bs-toggle="tab">Categories</a></li>
+					    <li><a href="#vehicle1" data-bs-toggle="tab">Vehicle Details</a></li>
 				  	</ul>
 			  	</div>
 
@@ -117,7 +117,7 @@
 					                                            <button type="reset" class="btn view-eye">Clear</button>
 					                                        </div>	                                        
 				                                    	</div>
-												</li>
+													</li>
 											  	</ul>
 										  	</form>
 										</div>

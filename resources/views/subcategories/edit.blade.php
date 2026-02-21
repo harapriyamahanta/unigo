@@ -11,14 +11,14 @@
                 <div class="widget-title">
                     <h5>Edit Category</h5>
                 </div>
-                <form action="{{url('/category/update/'.$category->id)}}" method="post">
+                <form action="{{url('/sub-category/update/'.$subcategory->id)}}" method="post">
                     @csrf
                     <ul>
                         <li class="item-content item-input">
                             <div class="item-col">
                                 <div class="item-title item-label">Name <span>*</span></div>
                                 <div class="item-input-wrap">
-                                    <input type="text" name="category"  value="{{$category->name}}" required>
+                                    <input type="text" name="subcategory"  value="{{$subcategory->name}}" required>
                                     <span class="input-clear-button"></span>
                                 </div>
                             </div>

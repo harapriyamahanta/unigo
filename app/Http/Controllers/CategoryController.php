@@ -11,6 +11,7 @@ use Illuminate\View\View;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\UserDetail;
+use App\Models\UserSubCategory;
 
 class CategoryController extends Controller
 {
@@ -67,6 +68,14 @@ class CategoryController extends Controller
             'page' => 'Edit Category'
         ]);
     }
+    public function subcatedit(Request $request,$id): View
+    {
+        $subcategory = SubCategory::where('id',$id)->first();
+        return view('subcategories.edit', [
+            'subcategory' => $subcategory,
+            'page' => 'Edit SubCategory'
+        ]);
+    }
 
     /**
      * Update the user's profile information.
@@ -78,6 +87,16 @@ class CategoryController extends Controller
         $location->save();
 
         return redirect('/categories')->with('status', 'profile-updated');
+    }
+
+
+    public function subcatupdate(Request $request,$id): RedirectResponse
+    {
+        $subcat = SubCategory::where('id',$id)->first();
+        $subcat->name = $request->subcategory;
+        $subcat->save();
+
+        return redirect('/sub-categories/'.$subcat->category_id)->with('status', 'profile-updated');
     }
 
     /**
@@ -94,5 +113,17 @@ class CategoryController extends Controller
         //->delete();
 
         return Redirect::to('/categories');
+    }
+    public function subcatdestroy(Request $request,$id): RedirectResponse
+    {
+        $subcategory = SubCategory::find($id);
+        $isexistUser = UserSubCategory::where('subcategory_id',$id)->count();
+        if(!$isexistUser){
+            $subcategory->delete();
+        }
+        
+        //->delete();
+
+        return Redirect::back();
     }
 }

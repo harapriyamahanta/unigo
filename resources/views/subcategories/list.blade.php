@@ -89,8 +89,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-                                        <a href="#" class="dropdown-item">Edit</a>
-                                        <a href="#" class="dropdown-item">Delete</a>
+                                        <a href="{{url('/sub-category/edit/'.$cat->id)}}" class="dropdown-item">Edit</a>
+                                        <a href="{{url('/sub-category/delete/'.$cat->id)}}" class="dropdown-item">Delete</a>
                                     </div>
                                 </div>
                             </span>

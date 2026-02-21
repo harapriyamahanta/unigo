@@ -51,7 +51,7 @@ class VendorController extends Controller
             $userdetail->phone = $request->phone;
             $userdetail->save();
             DB::commit();
-            return redirect('/vendors');
+            return redirect('/edit-vendor/'.$user->id);
             
         }catch(Exception $e){
 

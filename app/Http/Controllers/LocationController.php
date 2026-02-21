@@ -12,18 +12,23 @@ use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Location;
 use Illuminate\Support\Facades\Hash;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LocationController extends Controller
 {
     
-    public function list(Request $request): View
+    public function list(Request $request): View|JsonResponse
     {   
         $locations = Location::get();
+
+        if ($request->bearerToken()) {
+            return response()->json(['locations' => $locations]);
+        } else {
         return view('location.list', [
             'locations' => $locations,
             'page' => 'Locations'
         ]);
+        }
     }
 
     public function store(Request $request)

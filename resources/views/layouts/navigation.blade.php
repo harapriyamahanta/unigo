@@ -16,8 +16,8 @@
                         	<i class="material-icons">more_vert</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-                        	<a href="doctor-profile.html" class="dropdown-item">My Profile</a>
-                        	<a href="profile-settings.html" class="dropdown-item">Settings</a>
+                        	<!-- <a href="doctor-profile.html" class="dropdown-item">My Profile</a>
+                        	<a href="profile-settings.html" class="dropdown-item">Settings</a> -->
                             <form method="POST" action="{{ route('logout') }}">
                             @csrf
                         	<a href="route('logout')" role="button"
