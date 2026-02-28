@@ -24,7 +24,20 @@ class LocationController extends Controller
         $locations = Location::get();
 
         if ($request->bearerToken()) {
-            return response()->json(['locations' => $locations]);
+            $locationMapping = [];
+            foreach($locations as $loc){
+                $newLoc = [
+                    "id" => $loc->id,
+                    "street" => $loc->address,
+                    "city" => $loc->city,
+                    "pin" => $loc->pincode,
+                    "category" => $loc->category,
+                    "isPrimary" => $loc->isPrimary
+                ];
+                $locationMapping[] = $newLoc;
+
+            }
+            return response()->json($locationMapping);
         } else {
         return view('location.list', [
             'locations' => $locations,
@@ -33,16 +46,73 @@ class LocationController extends Controller
         }
     }
 
+
+    public function cities(Request $request): View|JsonResponse
+    {   
+        $locations = Location::pluck('city','city')->toArray();
+
+            return response()->json([
+                "totalCount" => count($locations),
+                "cities" => array_Values($locations)
+            ]);
+        
+    }
+
+    public function localaddresses(Request $request): View|JsonResponse
+    {   
+        $locations = Location::where('city',$request->city)->get();
+
+        $locationMapping = [];
+            foreach($locations as $loc){
+                $newLoc = [
+                    $loc->address,
+                    $loc->city .'-'.$loc->pincode
+                ];
+                $locationMapping[] = implode(',',$newLoc);
+
+            }
+            return response()->json($locationMapping);
+
+        
+            return response()->json([
+                "totalCount" => count($locations),
+                "cities" => array_Values($locations)
+            ]);
+        
+    }
     public function store(Request $request)
     {
-        $user = new Location();
-        $user->address = $request->address;
-        //$user->state = $request->state;
-        //$user->country = $request->country;
-        $user->city = $request->city;
-        $user->pincode = $request->pincode;
-        $user->save();
-        return redirect('/locations');
+        if ($request->bearerToken()) {
+            if($request->id){
+                $user = Location::find($request->id);
+                $user->address = $request->street;
+                $user->city = $request->city;
+                $user->pincode = $request->pin;
+                $user->category = $request->category;
+                $user->isPrimary = $request->isPrimary=='true' ? 'True':'False';
+                $user->save();
+            }else{
+                $user = new Location();
+                $user->address = $request->street;
+                $user->city = $request->city;
+                $user->pincode = $request->pin;
+                $user->category = $request->category;
+                $user->isPrimary = $request->isPrimary=='true' ? 'True':'False';
+                $user->save();
+
+            }
+            return response()->json([
+                "id" => $user->id,
+                "message" => "Address saved successfully"
+            ]);
+        }else{
+            $user = new Location();
+            $user->address = $request->address;
+            $user->city = $request->city;
+            $user->pincode = $request->pincode;
+            $user->save();
+            return redirect('/locations');
+        }
         
     }
 
@@ -91,9 +161,15 @@ class LocationController extends Controller
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request,$id): RedirectResponse
+    public function destroy(Request $request,$id)//: RedirectResponse
     {
         $location = Location::find($id)->delete();
+
+        if ($request->bearerToken()) {
+            return response()->json([
+                "message" => "Address deleted successfully"
+            ]);
+        }
 
         return Redirect::to('/locations');
     }

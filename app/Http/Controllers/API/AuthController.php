@@ -15,32 +15,30 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'phone' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'phone' => 'required|string|phone|max:10|unique:users'
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:10|unique:users'
         ]);
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone' => $request->phone
-        ]);
-        $user->type = $request->type;
+        $otp = rand(1000,9999);
+        $user = new User();
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        //$user->type = $request->type;
+        $user->verifyOtp = $otp;
         $user->save();
 
-        $token = $user->createToken('MyAppToken')->plainTextToken;
+       // $token = $user->createToken('MyAppToken')->plainTextToken;
 
         return response()->json([
             'success' => true,
             'message' => 'User registered successfully.',
-            'token' => $token,
-            'user' => $user,
+            "otp" => $otp
+            //'token' => $token,
+            //'user' => $user,
         ]);
     }
 
@@ -88,7 +86,42 @@ class AuthController extends Controller
     {
         return response()->json([
             'success' => true,
-            'user' => $request->user(),
+            //'user' => $request->user(),
+            "name" => $request->user()->name,
+            "phone" => $request->user()->phone,
+            "email" => $request->user()->email,
+            "gender" =>$request->user()?->userdetail?->gender,
+            "dob"=> $request->user()?->userdetail?->dob, // DDMMYYYY (UI shows as DD/MM/YYYY)
+            "image"=> $request->user()?->userdetail?->profileImage
+        ]);
+    }
+
+    public function home(Request $request){
+        return response()->json([
+            'banner' => [],
+            'categories' => [],
+        ]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = $request->user();
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->save();
+        $userDetail = $request->user()->userdetail;
+        if(!$userDetail){
+            $userDetail = new UserDetail();
+            $userDetail->user_id = $user->id;
+        }
+        $userDetail->gender = $request->gender;
+        $userDetail->dob = $request->dob;
+        $userDetail->profileImage = $request->image;
+        $userDetail->save();
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile updated successfully',
         ]);
     }
 
