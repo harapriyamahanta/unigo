@@ -17,6 +17,7 @@
 				 	<ul class="nav nav-tabs">
 					    <li><a href="#basic-info" data-bs-toggle="tab" class="active">Locations</a></li>  
 					    <li><a href="#about-me" data-bs-toggle="tab">Add Location</a></li>
+						<li><a href="#upload-location" data-bs-toggle="tab">Upload Location</a></li>
 				  	</ul>
 			  	</div>
                     <!-- Searchbar with auto Search -->
@@ -38,7 +39,7 @@
 											<ul>
 												<li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Address</div>
+											        	<div class="item-title item-label">Locality</div>
 											        	<div class="item-input-wrap">
 											          		<textarea  name="address" required></textarea>
 											          		<span class="input-clear-button"></span>
@@ -48,7 +49,7 @@
 											    
 											    <li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">City</div>
+											        	<div class="item-title item-label">District</div>
 											        	<div class="item-input-wrap">
 											          		<input type="text" name="city" required>
 											          		<span class="input-clear-button"></span>
@@ -58,7 +59,7 @@
 											   
 											    <li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Postal Code</div>
+											        	<div class="item-title item-label">Pin Code</div>
 											        	<div class="item-input-wrap">
 											          		<input type="text" name="pincode" required>
 											          		<span class="input-clear-button"></span>
@@ -74,6 +75,59 @@
 					                                        <div class="status-btn">
 					                                            <button type="reset" class="btn view-eye">Clear</button>
 					                                        </div>	                                        
+				                                    	</div>
+												</li>
+											</ul>
+										</form>
+							      	</div>
+				          		</div>
+				          	</div>
+				        </div>
+					</div>
+					<div class="tab-pane" id="upload-location">
+				    	
+						<div class="panel panel-default">
+				        	<div id="collapseTwo" class="panel-collapse collapse">
+				          		<div class="panel-body">
+				          			<div class="setting-widget">
+							      		<div class="widget-title">
+											<h5>Contact Details</h5>
+										</div>
+										<form action="{{url('/upload-location')}}" method="post" enctype="multipart/form-data">
+                                                @csrf
+											<ul>
+												<li class="item-content item-input" style="border:1px solid red;">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">Excel File Upload</div>
+											        	<div class="item-input-wrap" >
+											          		<input type="file"  name="import_file"  required />
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+												<!-- <li>
+													<br/><br/><br/><br/><br/>
+												</li>
+											    <li class="bottom-button">
+												    	<div class="status-col">
+					                                    	<div class="status-btn">
+					                                            <button type="button" class="btn success">Save</button>
+					                                        </div>
+					                                         <div class="status-btn">
+					                                            <button type="reset" class="btn view-eye">Clear</button>
+					                                        </div>	                                         
+				                                    	</div>
+												</li> -->
+											</ul>
+											<ul>
+												<li class="bottom-button">
+												    	<div class="status-col">
+					                                    	<div class="status-btn">
+					                                            <button type="submit" class="btn success">Save</button>
+					                                        </div>
+					                                        <!-- <div class="status-btn">
+					                                            <button type="reset" class="btn view-eye">Clear</button>
+					                                        </div>	                                         -->
 				                                    	</div>
 												</li>
 											</ul>

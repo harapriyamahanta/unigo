@@ -13,6 +13,8 @@ use App\Models\User;
 use App\Models\Location;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Imports\LocationImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LocationController extends Controller
 {
@@ -42,6 +44,20 @@ class LocationController extends Controller
         $user->save();
         return redirect('/locations');
         
+    }
+
+    public function importExcelData(Request $request)
+    {
+        $request->validate([
+            'import_file' => [
+                'required',
+                'file'
+            ],
+        ]);
+
+        Excel::import(new LocationImport, $request->file('import_file'));
+
+        return redirect()->back()->with('status', 'Imported Successfully');
     }
 
     /**

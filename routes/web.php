@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/locations/delete/{id}', [LocationController::class, 'destroy'])->name('location.delete');
     Route::get('/locations/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
     Route::post('/locations/update/{id}', [LocationController::class, 'update'])->name('location.update');
+    Route::post('upload-location',[LocationController::class,'importExcelData']);
 });
 
 require __DIR__.'/auth.php';

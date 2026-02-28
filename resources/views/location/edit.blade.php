@@ -16,7 +16,7 @@
                     <ul>
                         <li class="item-content item-input">
                             <div class="item-col">
-                                <div class="item-title item-label">Address</div>
+                                <div class="item-title item-label">Locality</div>
                                 <div class="item-input-wrap">
                                     <textarea  name="address" required>{{$locations->address}}</textarea>
                                     <span class="input-clear-button"></span>
@@ -26,7 +26,7 @@
                         
                         <li class="item-content item-input">
                             <div class="item-col">
-                                <div class="item-title item-label">City</div>
+                                <div class="item-title item-label">District</div>
                                 <div class="item-input-wrap">
                                     <input type="text" name="city"    value="{{$locations->city}}"  required>
                                     <span class="input-clear-button"></span>
@@ -36,7 +36,7 @@
                         
                         <li class="item-content item-input">
                             <div class="item-col">
-                                <div class="item-title item-label">Postal Code</div>
+                                <div class="item-title item-label">Pin Code</div>
                                 <div class="item-input-wrap">
                                     <input type="text" name="pincode"  value="{{$locations->pincode}}" required>
                                     <span class="input-clear-button"></span>
