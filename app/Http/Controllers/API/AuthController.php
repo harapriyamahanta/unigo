@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Validator;
+use App\Models\Banner;
+use App\Models\Category;
+use Spatie\Image\Image;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+  
 
 class AuthController extends Controller
 {
@@ -97,9 +103,11 @@ class AuthController extends Controller
     }
 
     public function home(Request $request){
+        $banners = Banner::pluck('banner')->toArray();
+        $categories = Category::select('name')->get();
         return response()->json([
-            'banner' => [],
-            'categories' => [],
+            'banner' => $banners,
+            'categories' => $categories,
         ]);
     }
 
@@ -117,7 +125,38 @@ class AuthController extends Controller
         }
         $userDetail->gender = $request->gender;
         $userDetail->dob = $request->dob;
-        $userDetail->profileImage = $request->image;
+        if($request->image){
+            $base64Image = $request->input('image');
+            if (preg_match('/^data:image\/(\w+);base64,/', $base64Image, $type)) {
+                $imageData = substr($base64Image, strpos($base64Image, ',') + 1);
+                $type = strtolower($type[1]); // png, jpg, gif, etc.
+
+                if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
+                    return response()->json(['error' => 'Invalid image type'], 422);
+                }
+                $imageData = base64_decode($imageData);
+                if ($imageData === false) {
+                    return response()->json(['error' => 'Base64 decoding failed'], 500);
+                }
+            } else {
+                return response()->json(['error' => 'Data not matched with image data format'], 422);
+            }
+
+            // 2. Define a unique file name and path
+            $fileName = Str::random(10) . '.' . $type;
+            $filePath = 'uploads/' . $fileName; 
+            //$filePath = storage_path('app/public/uploads/') . $fileName;
+
+            Storage::disk('public')->put($filePath, $imageData);
+            //  Image::load($imageData)
+            // ->resize(800, 600) // Example manipulation
+            // ->save($filePath);
+
+            // Image::load($request->image->path())
+            //     ->optimize()
+            //     ->save(public_path('images/'). $imageName);
+            $userDetail->profileImage = Storage::disk('public')->url($filePath);
+        }
         $userDetail->save();
         return response()->json([
             'success' => true,

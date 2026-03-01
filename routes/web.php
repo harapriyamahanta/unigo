@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\BannerController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -39,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/locations/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
     Route::post('/locations/update/{id}', [LocationController::class, 'update'])->name('location.update');
     Route::post('upload-location',[LocationController::class,'importExcelData']);
+    Route::get('/banners', [BannerController::class, 'list'])->name('banner.list');
+    Route::post('/banners/store', [BannerController::class, 'store'])->name('banner.store');
 });
 
 require __DIR__.'/auth.php';

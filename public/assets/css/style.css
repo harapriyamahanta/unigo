@@ -5693,6 +5693,7 @@ ul li span.trash-icon {
 }
 .change-password-col ul.change-list input[type="text"],
 .change-password-col ul.change-list input[type="tel"],
+.change-password-col ul.change-list input[type="email"],
 .change-password-col ul.change-list input[type="password"] {
 	font-size: 13px;
 	box-shadow: 0px 6px 15px #00000012;
