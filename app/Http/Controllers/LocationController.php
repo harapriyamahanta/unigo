@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Location;
+use App\Models\Zone;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Imports\LocationImport;
@@ -21,7 +22,16 @@ class LocationController extends Controller
     
     public function list(Request $request): View|JsonResponse
     {   
-        $locations = Location::get();
+        if($request->zone){
+            $locations = Location::with('zone')->whereHas('zone', function($q)use ($request) {
+               return $q->where('zone',$request->zone);
+            })->get();
+            $zone = Zone::where('zone',$request->zone)->first();
+        }else{
+            $locations = Location::get();
+        }
+
+        
 
         if ($request->bearerToken()) {
             $locationMapping = [];
@@ -41,11 +51,38 @@ class LocationController extends Controller
         } else {
         return view('location.list', [
             'locations' => $locations,
-            'page' => 'Locations'
+            'zone' => $zone,
+            'page' => $request->zone.' Locations'
         ]);
         }
     }
 
+    public function zones(Request $request): View|JsonResponse
+    {   
+        $locations = Zone::get();
+
+        if ($request->bearerToken()) {
+            $locationMapping = [];
+            foreach($locations as $loc){
+                $newLoc = [
+                    "id" => $loc->id,
+                    "street" => $loc->address,
+                    "city" => $loc->city,
+                    "pin" => $loc->pincode,
+                    "category" => $loc->category,
+                    "isPrimary" => $loc->isPrimary
+                ];
+                $locationMapping[] = $newLoc;
+
+            }
+            return response()->json($locationMapping);
+        } else {
+        return view('location.zones', [
+            'locations' => $locations,
+            'page' => 'Zones'
+        ]);
+        }
+    }
 
     public function cities(Request $request): View|JsonResponse
     {   
@@ -106,14 +143,53 @@ class LocationController extends Controller
                 "message" => "Address saved successfully"
             ]);
         }else{
+            if($request->id){
+            $user = Location::find($request->id);
+            }else{
             $user = new Location();
+            $user->zone_id = $request->zone_id;
+            }
             $user->address = $request->address;
+            $user->address2 = $request->address2;
             $user->city = $request->city;
             $user->pincode = $request->pincode;
             $user->save();
-            return redirect('/locations');
+            return redirect()->back();
         }
         
+    }
+
+    public function storeZone(Request $request){
+
+        if ($request->bearerToken()) {
+            if($request->id){
+                $user = Zone::find($request->id);
+                $user->zone = $request->zone;
+                $user->pincode = $request->pin;
+                $user->save();
+            }else{
+                $user = new Zone();
+                $user->zone = $request->zone;
+                $user->pincode = $request->pin;
+                $user->save();
+
+            }
+            return response()->json([
+                "id" => $user->id,
+                "message" => "Address saved successfully"
+            ]);
+        }else{
+            if($request->id){
+                $user = Zone::find($request->id);
+            }else{
+                $user = new Zone();
+            }
+            $user->zone = $request->zone;
+            $user->pincode = $request->pincode;
+            $user->save();
+            return redirect('/zones');
+        }
+
     }
 
     public function importExcelData(Request $request)
@@ -167,10 +243,24 @@ class LocationController extends Controller
 
         if ($request->bearerToken()) {
             return response()->json([
-                "message" => "Address deleted successfully"
+                "message" => "Zones deleted successfully"
             ]);
         }
 
         return Redirect::to('/locations');
+    }
+
+    public function zoneDelete(Request $request,$id){
+
+        $location = Zone::find($id)->delete();
+
+        if ($request->bearerToken()) {
+            return response()->json([
+                "message" => "Zones deleted successfully"
+            ]);
+        }
+
+        return Redirect::to('/zones');
+
     }
 }

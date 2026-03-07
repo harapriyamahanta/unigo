@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    //
+    public function zone(){
+        return $this->belongsTo('App\Models\Zone', 'zone_id');
+    }
 }

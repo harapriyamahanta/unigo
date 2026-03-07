@@ -1,43 +1,3 @@
-/*
-Template Name: Doccure - HTML Mobile Template
-Author: Dreamguy's Technologies
-Version: 1.1
-*/
-
-/*============================
- [Table of CSS]
- 
- 	1. Material Icons Font
-	2. Basic CSS
-	2. Sidebar
-	4. Header
-	5. Dashboard
-	6. Login / Register
-	7. Employees
-	8. Chat
-	9. Project
-	10. Users
-	11. Profile
-	12. Invoices
-	13. Voice Call
-	14. Incoming Call
-	15. Notification
-	16. Settings
-	17. Email Settings
-	18. Calendar
-	19. Profile Settings
-	20. Patient Appointments
-	21. Search By Doctor
-	22. Doctor Schedule Timings
-	23. My Patients List
-	24. Social Media
-	25. Change Password
-	26. Patient Date and Time
-	27. Booking Success
-	28. Responsive
-	
-========================================*/
-
 /*-----------------
 	1. Material Icons Font
 -----------------------*/
@@ -208,6 +168,10 @@ label {
 .text-info {
 	color: #009efb !important;
 }
+.text-small {
+    font-size: 11px;
+    color: #8c8787;
+}
 .rounded {
 	border-radius: 50%;
 }
@@ -221,6 +185,27 @@ label {
 }
 .text-muted {
 	color: #777 !important;
+}
+.border-bottom {
+	border-bottom: 1px dashed #c5c5c5;
+}
+.border-top {
+	border-top: 1px dashed #c5c5c5;
+}
+.p-t-0 {
+	padding-top: 0px !important;
+}
+.p-b-0 {
+	padding-bottom: 0px !important;
+}
+.p-l-15 {
+	padding-left: 15px !important;
+}
+.p-l-30 {
+	padding-left: 30px !important;
+}
+.p-l-40 {
+	padding-left: 40px !important;
 }
 .m-b-15 {
 	margin-bottom: 15px !important;
@@ -239,6 +224,9 @@ label {
 }
 .m-t-10 {
 	margin-top: 10px !important;
+}
+.m-t-20 {
+	margin-top: 20px !important;
 }
 .list input[type="date"], 
 .list input[type="datetime-local"], 
@@ -336,9 +324,9 @@ body.not-gray-bg {
 	flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
 	position: fixed;
-	left: -250px;
+	left: -300px;
 	top: 0;
-	max-width: 250px;
+	max-width: 300px;
 	z-index: 999;
 	background-color: #fff;
 	padding: 5px 15px 15px;
@@ -394,7 +382,7 @@ body.overlay-body:before {
 	background: transparent;
 }
 .side-menu ul li a span{
-	margin-right: 15px;
+	margin-right: 10px;
 	display: inline-block;
 	position: relative;
 	top: -1px;
@@ -414,8 +402,8 @@ body.overlay-body:before {
 .side-menu ul {
 	font-size: 14px;
 	list-style-type: none;
-	margin: 0;
-	padding: 0 0 40px 0;
+	margin-bottom: 40px;
+	padding: 0;
 	position:relative;
 }
 .side-menu li a {
@@ -517,9 +505,9 @@ body.overlay-body:before {
 	font-size: 15px;
 }
 .side-menu .close-btn {
-	position: absolute;
-	right: 15px;
-	top: 18px;
+	display: flex;
+	justify-content: flex-end;
+	width: 250px;    
 	color: #000;
 	cursor: pointer;
 }
@@ -537,7 +525,7 @@ body.overlay-body:before {
 .navbar-inner {
 	background: #1B5A90;
 	width: 100%;
-	padding: 15px;
+	padding: 10px 15px;
 }
 .navbar a {
 	color: #fff;
@@ -587,6 +575,12 @@ body.overlay-body:before {
 	font-family: 'poppinsmedium';
 	font-size: 16px;
 	width: 100%;
+}
+.custom-subtitle {
+	color: #0dd8f9;
+	font-family: 'poppinsmedium';
+	font-size: 11px;
+	display: flex;
 }
 .custom-hamburger {
 	width: 25px;
@@ -1987,7 +1981,7 @@ body.overlay-body:before {
 	font-size: 12px !important;
 }
 .list .item-title, li.chat-list .item-title {
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: 500;
 	color: #000;
 }
@@ -2377,6 +2371,7 @@ body.overlay-body:before {
 	overflow-x: auto; 
     white-space: nowrap;
     display: block;
+    scrollbar-width: none;
 }
 .tab-col ul li {
 	display: inline-block; 
@@ -2385,6 +2380,8 @@ body.overlay-body:before {
 .tab-col ul li a {
 	font-size: 14px;
 	color: #000;
+	background-color: #ededed;
+    border-radius: 50px;
 	width: auto;
 	display: inline-block;
 	padding: 8px 15px !important;
@@ -2420,12 +2417,12 @@ body.overlay-body:before {
 .left-icon-col {
 	position: relative;
 	float: left;
-	width: 40px;
+	width: 30px;
 	padding-left: 3px;
 }
 .left-icon-col span {
-	width: 40px;
-	height: 40px;
+	width: 20px;
+	height: 20px;
 	box-shadow: 0px 3px 6px #00000029;
 	border: 1px solid #EEEEEE;
 	background-color: #FFFFFF;
@@ -2441,7 +2438,7 @@ body.overlay-body:before {
 }
 .right-content-col {
 	float: left;
-	width: 85%;
+	width: 90%;
 	padding-left: 15px;
 	position: relative;
 }
@@ -2451,7 +2448,7 @@ body.overlay-body:before {
 	left: -18px;
 	top: 20px;
 	height: 100%;
-	border:1px dashed #000;
+	border:1px dotted #ccc;
 }
 .tab-widget:last-child .right-content-col:before {
 	display: none;
@@ -2477,13 +2474,13 @@ body.overlay-body:before {
 	line-height: 1.66;
 }
 .tab-widget .doctor-widget {
-	padding: 20px 20px 16px 20px;
+	padding: 10px;
 }
 .tab-widget .doctor-widget .doc-info-cont {
-	padding-top: 15px;
+	padding-top: 0px;
 }
 .tab-widget .doctor-widget .doc-name {
-	font-size: 18px;
+	font-size: 14px;
 	margin-bottom: 10px;
 }
 .tab-widget .doctor-widget .doc-info-left {
@@ -2949,7 +2946,7 @@ table.inv-table tr td, table tr th {
 	margin-bottom: 10px;
 }
 .inv-logo img {
-	width: 131px;
+	width: 125px;
 }
 .invoice-info p {
 	font-size: 10px;
@@ -3817,8 +3814,8 @@ i.icon.icon-forward::before, i.icon.icon-next::before {
 	background-color: transparent !important;
 }
 .setting-widget .item-label {
-	font-size: 11px;
-	color: #777777;
+	font-size: 13px;
+	color: #2f2a2a;
 	padding-bottom: 6px;
 }
 .setting-widget .item-label span {
@@ -3843,7 +3840,7 @@ i.icon.icon-forward::before, i.icon.icon-next::before {
 	border-radius: 6px;
 	width: 100%;
 	padding: 13px 17px;
-	height: 282px;
+	height: 150px;
 }
 .setting-widget textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #C9C9C9;
@@ -3906,10 +3903,9 @@ i.icon.icon-forward::before, i.icon.icon-next::before {
 .bottom-button button {
 	background-color: #1B5A90;
 	border-radius: 50px;
-	text-transform: uppercase;
 	color: #FFFFFF;
 	border: 0;
-	padding: 12px 15px;
+	padding: 10px 15px;
 	cursor: pointer;
 	width: 100%;
 	display: inline-block;
@@ -4219,6 +4215,7 @@ ul li span.trash-icon {
 }
 .patient-appointments-col .pat-info-left {
 	width: 100%;
+	padding: 10px;
 }
 .hour-col > div {
 	width: 50%;
@@ -4243,7 +4240,6 @@ ul li span.trash-icon {
 	-webkit-justify-content: center;
 	flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
-	margin-top: 10px;
 }
 .status-col.no-shadow {
 	box-shadow: none;
@@ -4405,10 +4401,13 @@ ul li span.trash-icon {
 }
 .specialist-slider .swiper-container .swiper-slide .content .text {
     padding-top: 10px;
+    color: #000;
+	font-size: 12px;
 }
 .specialist-slider .swiper-container .swiper-slide .content .text a {
 	color: #000;
 	font-size: 12px;
+	padding-top: 10px;
 }
 .specialist-slider .swiper-container .swiper-slide .content .text h4 {
     margin-bottom: 0;
@@ -4570,18 +4569,15 @@ ul li span.trash-icon {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     border-bottom: 1px dashed #c5c5c5;
-    margin-bottom: 10px;
 }
 .doc-info-right {
 }
-.doctor-img {
-    -ms-flex: 0 0 80px;
-    flex: 0 0 80px;
+.doctor-img {    
     margin-right: 10px;
     width: 80px;
-	display: flex;
+    max-width: 80px;
 }
 .doctor-img a {
 	display: inline-block;
@@ -4688,7 +4684,7 @@ ul li span.trash-icon {
     margin-left: 5px;
 }
 .clini-infos {
-    margin-bottom: 15px;
+    padding: 5px;
 }
 .clini-infos ul {
     font-size: 12px;
@@ -4711,14 +4707,9 @@ ul li span.trash-icon {
 }
 .clini-infos ul li i {
     font-size: 12px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: #fff;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 .clinic-booking a + a {
 	margin-top: 15px;
@@ -4788,9 +4779,8 @@ ul li span.trash-icon {
 -----------------------*/
 
 .search-tag {
-	padding: 15px 16px 15px;
+	padding: 15px 16px 0px;
 	margin: 0 -15px;
-	background-color: #fff;
 }
 .search-tag .swiper-slide {
 	width: auto;
@@ -4826,7 +4816,6 @@ ul li span.trash-icon {
 .search-tag h6 {
 	color: #858585;
 	font-size: 13px;
-	margin-top: 15px;
 	margin-bottom: 5px;
 	font-weight: 400;
 }
@@ -4917,7 +4906,7 @@ ul li span.trash-icon {
 }
 .custom-filter-popup .item-input .item-col {
 	font-size:14px; 
-	padding: 15px 14px 15px 0;
+	padding: 0;
 	color: #000000;
 	position: relative;
 }
@@ -5158,6 +5147,7 @@ ul li span.trash-icon {
 
 .top-title {
 	width: 100%;
+	display: flex;
 }
 .top-title:after {
 	content: "";
@@ -5407,6 +5397,10 @@ ul li span.trash-icon {
 	background-color: #0DD8F9;
 	color: #fff;
 }
+.modal-widget-title {
+	margin-bottom: 0px;
+	font-size: 15px;
+}
 .custom-modal .close {
 	background-color: #a0a0a0;
 	border: 0;
@@ -5469,18 +5463,14 @@ ul li span.trash-icon {
 }
 .patient-widget {
 	background-color: #fff;
-	padding: 15px;
+	padding: 10px;
 	box-shadow: 0px 6px 15px #00000014;
 	border-radius: 10px;
 }
 .patient-top-details {
 	display: inline-block;
 	width: 100%;
-	background-image: linear-gradient(to right, #CFCFCF 33%, rgba(245,245,245,0) 0%);
-	background-image: -webkit-linear-gradient(to right, #CFCFCF 33%, rgba(245,245,245,0) 0%);
-	background-position: bottom;
-	background-size: 10px 2px;
-	background-repeat: repeat-x;
+	border-bottom: 1px dashed #c5c5c5;
 	padding-bottom: 7px;
 	margin-bottom: 10px;
 	display: flex;
@@ -5489,7 +5479,7 @@ ul li span.trash-icon {
 	-webkit-justify-content: space-between;
 }
 .patient-top-details i {
-	font-size: 10px;
+	font-size: 15px;
 	vertical-align: 0px;
 }
 .pat-info-left {
@@ -5526,7 +5516,7 @@ ul li span.trash-icon {
 	display: -webkit-flex;
 	justify-content: space-between;
 	-webkit-justify-content: space-between;
-	font-size: 12px;
+	font-size: 11px;
 	color: #858585;	
 }
 .pat-contact {
@@ -5668,6 +5658,10 @@ ul li span.trash-icon {
 .change-password-col .logo {
 	text-align: center;
 	padding-top: 10px;
+	min-height: 180px;
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 .change-password-col ul.change-list {
 	background-color: transparent;
@@ -5693,7 +5687,6 @@ ul li span.trash-icon {
 }
 .change-password-col ul.change-list input[type="text"],
 .change-password-col ul.change-list input[type="tel"],
-.change-password-col ul.change-list input[type="email"],
 .change-password-col ul.change-list input[type="password"] {
 	font-size: 13px;
 	box-shadow: 0px 6px 15px #00000012;
@@ -6001,7 +5994,7 @@ ul li span.trash-icon {
 	.favourites .doctor-widget {
 		width: 47%;
 		float: left;
-		margin: 10px;
+		margin: 5px;
 		display: inline-block;
 	}
 	.search-doctor .swiper-container,
@@ -6024,6 +6017,11 @@ ul li span.trash-icon {
 	}
 	.setting-widget .item-content {
 		width: 50%;
+		padding: 0 10px;
+		clear: inherit;
+	}
+	.setting-widget .item-content-full {
+		width: 100%;
 		padding: 0 10px;
 		clear: inherit;
 	}

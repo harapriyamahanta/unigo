@@ -27,7 +27,11 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $category = new Category();
+        if($request->id){
+            $category = Category::find($request->id);
+        }else{
+            $category = new Category();
+        }
         $category->name = $request->category;
         $category->save();
         return redirect('/categories');
@@ -36,9 +40,14 @@ class CategoryController extends Controller
 
     public function storesubcategory(Request $request)
     {
-        $subcategory = new SubCategory();
+        if($request->id){
+            $subcategory = SubCategory::find($request->id);
+        }else{
+            $subcategory = new SubCategory();
+            $subcategory->category_id = $request->category;
+        }
         $subcategory->name = $request->subcategory;
-        $subcategory->category_id = $request->category;
+        
         $subcategory->save();
         return redirect('/sub-categories/'.$request->category);
         

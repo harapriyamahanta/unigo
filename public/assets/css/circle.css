@@ -46,8 +46,7 @@
   border-radius: 50%;
   float: left;
   margin: 0 0.1em 0.1em 0;
-  background-color: #fff;
-  box-shadow: 2px 6px 6px #00000029;
+  background-color: #fff;  
 }
 .c100 *, .c100 *:before, .c100 *:after {
   -webkit-box-sizing: content-box;

@@ -34,12 +34,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit-vendor/{id}', [VendorController::class, 'edit'])->name('vendor.edit');
     Route::post('/store-vendor', [VendorController::class, 'store'])->name('vendor.store');
     Route::post('/update-vendor/{id}', [VendorController::class, 'update'])->name('vendor.update');
+
+
+
+    Route::get('/zones', [LocationController::class, 'zones'])->name('location.zones');
+    Route::post('/store-zones', [LocationController::class, 'storeZone'])->name('location.zonestore');
+    Route::get('/zones/delete/{id}', [LocationController::class, 'zoneDelete'])->name('location.zoneDelete');
+
+
     Route::get('/locations', [LocationController::class, 'list'])->name('location.list');
     Route::post('/store-location', [LocationController::class, 'store'])->name('location.store');
     Route::get('/locations/delete/{id}', [LocationController::class, 'destroy'])->name('location.delete');
     Route::get('/locations/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
     Route::post('/locations/update/{id}', [LocationController::class, 'update'])->name('location.update');
     Route::post('upload-location',[LocationController::class,'importExcelData']);
+    
+    
     Route::get('/banners', [BannerController::class, 'list'])->name('banner.list');
     Route::post('/banners/store', [BannerController::class, 'store'])->name('banner.store');
 });
