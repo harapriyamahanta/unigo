@@ -40,6 +40,7 @@ class VendorController extends Controller
             $user->name = $request->username;
             $user->email = $request->email;
             $user->type = 'vendor';
+            $userdetail->phone = $request->phone;
             $user->password = Hash::make($request->password);
             $user->save();
             $profile_image = '';
