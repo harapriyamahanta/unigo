@@ -9,9 +9,9 @@
                 </i>
             </a>
         </div>
-        <div class="sliding custom-title">Zones</div>
+        <div class="sliding custom-title">Categories</div>
         <div class="right d-flex">
-            <a href="javascript:void(0)" onClick="openAdd()" class="link icon-only" title="Add Zone"><i class="material-icons">add</i></a>
+            <a href="javascript:void(0)" onClick="openAdd()" class="link icon-only" title="Add Category"><i class="material-icons">add</i></a>
             <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link"><i class="material-icons">more_vert</i></a>
             @include('layouts.navigation')
         </div>
@@ -77,12 +77,12 @@
                                 <div class="popup custom-filter-popup">
                                     <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
-                                            <div class="file-upload">
+                                            <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
                                                     <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="85" alt="User Image">
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                            <form action="{{url('/store-category')}}" method="post">
                                                 @csrf
                                                 <input type="hidden" id="zone_id" name="id" />
@@ -103,9 +103,9 @@
 					                                    	<div class="status-btn">
 					                                            <button type="submit" class="btn success">Save</button>
 					                                        </div>
-					                                        <div class="status-btn">
+					                                        <!-- <div class="status-btn">
 					                                            <button type="reset" class="btn view-eye">Clear</button>
-					                                        </div>	                                        
+					                                        </div>	                                         -->
 				                                    	</div>
 												</li>
 											  	</ul>

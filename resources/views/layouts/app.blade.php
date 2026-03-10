@@ -63,7 +63,7 @@
                             <a class="p-l-40" href="customers.html">
                                 Customers                   
                             </a>
-                            <a class="p-l-40" href="vendors.html">
+                            <a class="p-l-40" href="{{url('vendors')}}">
                                 Vendors
                             </a>
                             <a class="p-l-40" href="permission.html">
@@ -89,7 +89,7 @@
                             </a>
                         </li> 
                         <li>
-                            <a class="" href="banners.html">
+                            <a class="" href="{{url('/banners')}}">
                                 <span class="material-icons">pages</span>
                                 Banners
                             </a>

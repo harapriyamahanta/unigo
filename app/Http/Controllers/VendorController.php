@@ -13,6 +13,7 @@ use App\Models\SubCategory;
 use App\Models\UserAddress;
 use App\Models\UserSubCategory;
 use App\Models\UserDetail;
+use App\Models\Category;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -62,8 +63,10 @@ class VendorController extends Controller
     }
 
     public function create(Request $request): View
-    {
+    {   
+        $category = Category::find($request->category);
         return view('vendor.add', [
+            'category' => $category,
             'page' => 'Add Vendor',
         ]);
     }

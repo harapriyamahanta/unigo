@@ -46,5 +46,14 @@ class BannerController extends Controller
         
     }
 
+    public function destroy(Request $request,$id): RedirectResponse
+    {
+        $banner = Banner::find($id);
+        if($banner){
+            $banner->delete();
+        }
+        return Redirect::to('/banners');
+    }
+
     
 }

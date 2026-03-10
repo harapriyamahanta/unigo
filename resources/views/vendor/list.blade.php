@@ -1,6 +1,47 @@
 @extends('layouts.app')
 @section('content')
-    @include('layouts.navigation')
+    <div class="navbar two-action no-hairline">
+		<div class="navbar-inner d-flex align-items-center">
+			<div class="left">
+				<a href="#" class="link icon-only">
+					<i class="custom-hamburger">
+						<span><b></b></span>
+					</i>
+				</a>
+			</div>
+			<div class="sliding custom-title">All Vendors
+				<!-- <span class="custom-subtitle">Plumber</span> -->
+			</div>
+			<div class="right d-flex">
+				<a href="notifications.html" class="link icon-only"><i class="material-icons">notifications</i></a>
+				<a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link"><i class="material-icons">more_vert</i></a>
+				@include('layouts.navigation')
+			</div>
+		</div>
+	</div>
+		<div class="page-content header-bg">
+	    	<!-- Search -->
+		            <div class="top-search">
+		            	<div class="container">
+			                <div class="search-area">
+			                    <form action="search">
+									<div class="list inset">
+										<ul>
+											<li class="d-flex">
+												<div class="item-icon">
+													<i class="search-icon fas fa-map-marker-alt"></i>
+												</div>
+												<div class="item-col">
+													<input type="text" placeholder="Search By Location or Pin Code">
+												</div>
+											</li>
+										</ul>
+									</div>
+			                    </form>
+			                </div>
+		            	</div>
+		        	</div>
+		        	<!-- /search -->
       <div class="container">	        	
 	        	<!-- Search tag -->
 	        	<div class="search-tag">                	
@@ -217,22 +258,22 @@
 	        </div>
 
     
-
+</div>
 @endsection
 @section('customScript')
 
-<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 
-    <!-- Bootstrap Datepicker CSS -->
-	<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
+<!-- Bootstrap Core JS -->
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
-	<!-- Circle CSS -->
-	<link rel="stylesheet" href="{{asset('assets/css/circle.css')}}">
+<!-- Bootstrap Datepicker JS -->
+	<script src="{{asset('assets/js/moment.min.js')}}"></script>
+	<script src="{{asset('assets/js/jquery.datepicker2.js')}}"></script>
 
+	<!-- Swiper JS -->
+    <script src="{{asset('assets/plugins/swiper/js/swiper.min.js')}}"></script>
 
-   <script src="{{asset('assets/plugins/fancybox/jquery.fancybox.min.js')}}"></script>
-  <script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Custom JS -->
+<script src="{{asset('assets/js/script.js')}}"></script>
 @endsection

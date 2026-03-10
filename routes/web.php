@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/banners', [BannerController::class, 'list'])->name('banner.list');
     Route::post('/banners/store', [BannerController::class, 'store'])->name('banner.store');
+    Route::get('/banners/delete/{id}', [BannerController::class, 'destroy'])->name('banner.delete');
 });
 
 require __DIR__.'/auth.php';

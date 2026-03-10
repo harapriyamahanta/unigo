@@ -1,48 +1,97 @@
 @extends('layouts.app')
 @section('content')
-    @include('layouts.navigation')
-     <div class="chat-list-new">
+    <div class="navbar two-action no-hairline">
+    <div class="navbar-inner d-flex align-items-center">
+        <div class="left">
+            <a href="#" class="link icon-only">
+                <i class="custom-hamburger">
+                    <span><b></b></span>
+                </i>
+            </a>
+        </div>
+        <div class="sliding custom-title">Banners</div>
+        <div class="right d-flex">
+            <a href="javascript:void(0)" onClick="openAdd()" class="link icon-only" title="Add Category"><i class="material-icons">add</i></a>
+            <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link"><i class="material-icons">more_vert</i></a>
+            @include('layouts.navigation')
+        </div>
+    </div>
+</div> 
+    <div class="chat-list-new">
         <div class="container">
         <!-- Pages -->
-        <div class="social-media-col pages-list-col">            
-                <div class="chat-title">
-                        <div class="chat-list-title">
-                            <i><a href="{{url('dashboard')}}" class="back link">
-                                <img src="assets/img/left-arrow-big-black.svg" alt=""></a>
-                            </i> Back</div>
-                           
-                        <div class="user">{{count($banners)}} Banners </div>
-                    </div>
-                    <div class="tab-col">
-				 	<ul class="nav nav-tabs">
-					    <li><a href="#basic-info" data-bs-toggle="tab" class="active">Banners</a></li>  
-					    <!-- <li><a href="#about-me" data-bs-toggle="tab">Add Location</a></li> -->
-						<li><a href="#upload-location" data-bs-toggle="tab">Upload Banner</a></li>
-				  	</ul>
-			  	</div>
+        <div class="social-media-col pages-list-col">         
+                
                     <!-- Searchbar with auto Search -->
-                    
+                    <form class="searchbar">
+                        <div class="search_chat has-search">
+                            <span class="fas fa-search form-control-feedback"></span>
+                            <input class="form-control chat_input" id="search-chat" type="text" placeholder="">
+                        </div>
+                    </form>
                     <!-- Searchbar with auto Search end -->
-                <div class="tab-content">
-
-			 		
-					<div class="tab-pane" id="upload-location">
-				    	
-						<div class="panel panel-default">
-				        	<div id="collapseTwo" class="panel-collapse collapse">
-				          		<div class="panel-body">
-				          			<div class="setting-widget">
-							      		<div class="widget-title">
-											<h5>Upload Banner</h5>
-										</div>
-										<form action="{{url('/banners/store')}}" method="post" enctype="multipart/form-data">
+                <div class="list">
+                    <ul>
+                        @foreach($banners as $loc)
+                        <li>
+                            <span class="item-link item-content">
+                                <div class="item-avatar">
+                                    <span class="material-icons">pages</span>
+                                </div>
+                                <div class="item-cat">
+                                    <div class="item-title">
+                                        <a href="{{url($loc->banner)}}" target="_blank" >
+											<img src="{{$loc->banner}}" height="100"  width="100"/>
+										</a>
+                                    </div>
+                                </div>
+                                <div class="right d-flex">                    
+                                    <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end header_drop_icon">
+                                        <!-- <a href="{{url('/locations/edit/'.$loc->id)}}" class="dropdown-item">Edit</a> -->
+                                        <a href="{{url('/banners/delete/'.$loc->id)}}" class="dropdown-item">Delete</a>
+                                    </div>
+                                </div>
+                            </span>
+                        </li>
+                        @endforeach
+                                           
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Pages -->
+        <!-- Category popup -->
+                <div class="modal fade" id="zone-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-widget-title title">Add Location</h5>
+                                <a class="link popup-close close popup-close-right" href="#" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="popup custom-filter-popup">
+                                    <div class="setting-widget">
+                                        <div class="list no-hairlines-md">         
+                                            
+                                           <form action="{{url('/banners/store')}}" method="post" enctype="multipart/form-data">
                                                 @csrf
 											<ul>
-												<li class="item-content item-input" style="border:1px solid red;">
+												<li class="item-content item-input" >
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Excel File Upload</div>
-											        	<div class="item-input-wrap" >
-											          		<input type="file"  name="image"  required />
+											        	<div class="item-title item-label">Banner Upload</div>
+											        	<div class="item-input-wrap file-upload-img" >
+															<div class="file-upload1">
+																<!-- <a href="#" class="file-upload-img1" > -->
+																	<img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="300" height="300" alt="User Image">
+																	<!-- <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span> -->
+																<!-- </a> -->
+															</div>
+											          		<input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
@@ -62,62 +111,15 @@
 												</li>
 											</ul>
 										</form>
-							      	</div>
-				          		</div>
-				          	</div>
-				        </div>
-					</div>
-
-					<div class="tab-pane active" id="basic-info">
-				      	<div class="panel panel-default">
-				        	<div id="collapseTwo" class="panel-collapse collapse">
-				          		<div class="panel-body">
-                                    <form class="searchbar">
-                        <div class="search_chat has-search">
-                            <span class="fas fa-search form-control-feedback"></span>
-                            <input class="form-control chat_input" id="search-chat" type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
-                    </form>
-				          			<div class="list">
-                    <ul>
-                        @foreach($banners as $loc)
-                        <li>
-                            <span class="item-link item-content">
-                                <div class="item-avatar">
-                                    <span class="material-icons">pages</span>
-                                </div>
-                                <div class="item-cat">
-                                    <div class="item-title">
-                                        {{$loc->banner}}
-                                    </div>
-                                </div>
-                                <div class="right d-flex">                    
-                                    <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-                                        <a href="{{url('/locations/edit/'.$loc->id)}}" class="dropdown-item">Edit</a>
-                                        <a href="{{url('/locations/delete/'.$loc->id)}}" class="dropdown-item">Delete</a>
-                                    </div>
-                                </div>
-                            </span>
-                        </li>
-                        @endforeach
-                                              
-                    </ul>
+                    </div>
                 </div>
-				          		</div>
-				          	</div>
-				        </div>
-			      	</div>
-
-
-
-			 	</div>
-                
-            </div>
-        </div>
-        <!-- /Pages -->
+            <!-- /Add Category popup -->
     </div>
 
     
@@ -125,18 +127,38 @@
 @endsection
 @section('customScript')
 
-<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 
-    <!-- Bootstrap Datepicker CSS -->
-	<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
+<!-- Bootstrap Core JS -->
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
-	<!-- Circle CSS -->
-	<link rel="stylesheet" href="{{asset('assets/css/circle.css')}}">
+<!-- Custom JS -->
+<script src="{{asset('assets/js/script.js')}}"></script>
+<script>
+function openEdit (item){
+    //console.log(item,'item');
+    $('#zone-modal').modal('show');
+    $('#zone_id').val(item.id);
+    $('.title').html('Edit Category');
+    $('.addZoneBtn').html('Update Category');
+    $('#category').val(item.name);
+}
+function openAdd (){
+   // console.log(item,'item');
+    $('#zone-modal').modal('show');
+    $('#zone_id').val('');
+    $('.title').html('Add Category');
+    $('.addZoneBtn').html('Add Category');
+    $('#category').val('');
+}
 
+var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
 
-   <script src="{{asset('assets/plugins/fancybox/jquery.fancybox.min.js')}}"></script>
-  <script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 @endsection
