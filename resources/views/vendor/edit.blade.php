@@ -1,6 +1,24 @@
 @extends('layouts.app')
 @section('content')
-    @include('layouts.navigation')
+    <div class="navbar two-action no-hairline">
+		<div class="navbar-inner d-flex align-items-center">
+			<div class="left">
+				<a href="#" class="link icon-only">
+					<i class="custom-hamburger">
+						<span><b></b></span>
+					</i>
+				</a>
+			</div>
+			<div class="sliding custom-title">Vendor Onboard
+				<span class="custom-subtitle">{{$category->name}}</span>
+			</div>
+			<div class="right d-flex">
+				<a href="notifications.html" class="link icon-only"><i class="material-icons">notifications</i></a>
+				<a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link"><i class="material-icons">more_vert</i></a>
+				@include('layouts.navigation')
+			</div>
+		</div>
+	</div>
     <div class="page-content profile-settings">
 
 			<!-- Profile settings -->
@@ -326,10 +344,18 @@
 
 @endsection
 @section('customScript')
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 
+<!-- Bootstrap Core JS -->
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
-
-    <!-- Bootstrap Datepicker CSS -->
+<!-- Bootstrap Datepicker JS -->
 	<script src="{{asset('assets/js/moment.min.js')}}"></script>
-	<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+	<script src="{{asset('assets/js/jquery.datepicker2.js')}}"></script>
+
+	<!-- Swiper JS -->
+    <script src="{{asset('assets/plugins/swiper/js/swiper.min.js')}}"></script>
+
+<!-- Custom JS -->
+<script src="{{asset('assets/js/script.js')}}"></script>
 @endsection
