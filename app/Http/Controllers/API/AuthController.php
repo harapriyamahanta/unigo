@@ -125,6 +125,7 @@ class AuthController extends Controller
             $userDetail->user_id = $user->id;
         }
         $userDetail->gender = $request->gender;
+        $userDetail->first_name = $request->name;
         $userDetail->dob = $request->dob;
         if($request->image){
             $base64Image = $request->input('image');
