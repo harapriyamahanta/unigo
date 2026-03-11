@@ -35,6 +35,7 @@ class LocationController extends Controller
         
 
         if ($request->bearerToken()) {
+            $locations = UserAddress::get();
             $locationMapping = [];
             foreach($locations as $loc){
                 $newLoc = [
