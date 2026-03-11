@@ -143,22 +143,45 @@
 											<ul>
 												<li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Address Line 1</div>
+											        	<div class="item-title item-label">Is Primary</div>
 											        	<div class="item-input-wrap">
-											          		<textarea name="address">{{$vendor?->useraddress?->address}}</textarea>
+											          		<input type="checkbox" name="isPrimary"  value="1" />
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
 											    </li>
-											    <!-- <li class="item-content item-input">
+												<li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Address Line 2</div>
+											        	<div class="item-title item-label">Address Type</div>
 											        	<div class="item-input-wrap">
-											          		<input type="text">
+											          		<select name="category" required>
+																<option>Other</option>
+																<option>Home</option>
+																<option>Work</option>
+																
+															</select>
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
-											    </li> -->
+											    </li>
+												<li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">Address Line 1</div>
+											        	<div class="item-input-wrap">
+											          		<input name="address" required value="{{$vendor?->useraddress?->address}}" />
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    <li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">Address Line 2</div>
+											        	<div class="item-input-wrap">
+											          		<input type="text" required value="{{$vendor?->useraddress?->address2}}" name="address2">
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
 											    <li class="item-content item-input">
 											      	<div class="item-col">
 											        	<div class="item-title item-label">City</div>

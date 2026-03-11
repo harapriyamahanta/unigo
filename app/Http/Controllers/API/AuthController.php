@@ -13,6 +13,7 @@ use App\Models\Category;
 use Spatie\Image\Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Models\UserDetail;
   
 
 class AuthController extends Controller
