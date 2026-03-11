@@ -126,7 +126,10 @@ class AuthController extends Controller
         }
         $userDetail->gender = $request->gender;
         $userDetail->first_name = $request->name;
+        $userDetail->last_name = $request->name;
         $userDetail->dob = $request->dob;
+        $userDetail->gender = $request->gender;
+        $userDetail->phone = $request->phone;
         if($request->image){
             $base64Image = $request->input('image');
             if (preg_match('/^data:image\/(\w+);base64,/', $base64Image, $type)) {
