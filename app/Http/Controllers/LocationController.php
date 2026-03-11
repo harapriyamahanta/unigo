@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Imports\LocationImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\UserAddress;
 
 class LocationController extends Controller
 {
@@ -121,16 +122,18 @@ class LocationController extends Controller
     {
         if ($request->bearerToken()) {
             if($request->id){
-                $user = Location::find($request->id);
+                $user = UserAddress::find($request->id);
                 $user->address = $request->street;
+                $user->address2 = $request->street;
                 $user->city = $request->city;
                 $user->pincode = $request->pin;
                 $user->category = $request->category;
                 $user->isPrimary = $request->isPrimary=='true' ? 'True':'False';
                 $user->save();
             }else{
-                $user = new Location();
+                $user = new UserAddress();
                 $user->address = $request->street;
+                $user->address2 = $request->street;
                 $user->city = $request->city;
                 $user->pincode = $request->pin;
                 $user->category = $request->category;
