@@ -86,7 +86,7 @@ class LocationController extends Controller
 
     public function cities(Request $request): View|JsonResponse
     {   
-        $locations = Location::pluck('city','city')->toArray();
+        $locations = Zone::pluck('zone','zone')->toArray();
 
             return response()->json([
                 "totalCount" => count($locations),
