@@ -244,14 +244,15 @@ class LocationController extends Controller
      */
     public function destroy(Request $request,$id)//: RedirectResponse
     {
-        $location = Location::find($id)->delete();
+        
 
         if ($request->bearerToken()) {
+            $location = UserAddress::find($id)->delete();
             return response()->json([
                 "message" => "Zones deleted successfully"
             ]);
         }
-
+        $location = Location::find($id)->delete();
         return Redirect::to('/locations');
     }
 
