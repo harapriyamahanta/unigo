@@ -134,6 +134,7 @@ class LocationController extends Controller
                 $user = new UserAddress();
                 $user->address = $request->street;
                 $user->address2 = $request->street;
+                $user->user_id = Auth::user()->id;
                 $user->city = $request->city;
                 $user->pincode = $request->pin;
                 $user->category = $request->category;
