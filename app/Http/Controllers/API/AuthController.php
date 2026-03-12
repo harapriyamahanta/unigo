@@ -14,6 +14,7 @@ use Spatie\Image\Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\UserDetail;
+use \Throwable;
   
 
 class AuthController extends Controller
@@ -52,17 +53,33 @@ class AuthController extends Controller
     // User Login API
     public function login(Request $request)
     {
+       try{
         $otp = rand(1000,9999);
 
         $user = User::where('phone',$request->phone)->first();
-        $user->verifyOtp = $otp;
-        $user->save();
+        if($user){
+            $user->verifyOtp = $otp;
+            $user->save();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'OTP sent successfully',
+            return response()->json([
+                'success' => true,
+                'message' => 'OTP sent successfully',
+                'otp' => $otp
+            ],200);
+        }else{
+             return response()->json([
+            'success' => false,
+            'message' => 'User not Found',
             'otp' => $otp
-        ],200);
+            ],500);
+        }
+       }catch(\Throwable $e){
+            return response()->json([
+            'success' => false,
+            'message' => 'User not Found',
+            'otp' => $otp
+            ],500);
+       }
     }
     public function verify(Request $request)
     {
