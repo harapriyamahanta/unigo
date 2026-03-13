@@ -50,6 +50,7 @@
 											</div>
 											<form action="{{url('/store-vendor')}}" method="post">
                                                 @csrf
+												<input type="hidden" name="category_id" value="{{Request::get('category')}}" />
 											  	<ul>
 											  		<li class="item-content item-input">
 												      	<div class="item-col">

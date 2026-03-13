@@ -48,6 +48,7 @@ class VendorController extends Controller
             $userdetail->first_name = $request->first_name;
             $userdetail->last_name = $request->last_name;
             $userdetail->dob = $request->dob;
+            $userdetail->category_id = $request->category_id;
             $userdetail->user_id = $user->id;
             $userdetail->gender = $request->gender;
             $userdetail->phone = $request->phone;
