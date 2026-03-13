@@ -141,7 +141,7 @@
                                                 @csrf
                                                 <input type="hidden"  name="section" value="address" />
 											<ul>
-												<li class="item-content item-input">
+												<!-- <li class="item-content item-input">
 											      	<div class="item-col">
 											        	<div class="item-title item-label">Is Primary</div>
 											        	<div class="item-input-wrap">
@@ -163,7 +163,7 @@
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
-											    </li>
+											    </li> -->
 												<li class="item-content item-input">
 											      	<div class="item-col">
 											        	<div class="item-title item-label">Address Line 1</div>

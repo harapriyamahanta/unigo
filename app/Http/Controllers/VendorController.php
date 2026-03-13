@@ -113,8 +113,8 @@ class VendorController extends Controller
             }
             $useraddress->address = $request->address;
             $useraddress->address2 = $request->address2;
-            $useraddress->category = $request->category;
-            $useraddress->isPrimary = $request->isPrimary;
+            //$useraddress->category = $request->category;
+            //$useraddress->isPrimary = $request->isPrimary;
             $useraddress->city = $request->city;
             $useraddress->state = $request->state;
             $useraddress->district = $request->country;

@@ -35,7 +35,7 @@ class AuthController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
-        //$user->type = $request->type;
+        $user->type = 'user';
         $user->verifyOtp = $otp;
         $user->save();
 
