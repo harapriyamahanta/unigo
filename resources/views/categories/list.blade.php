@@ -93,8 +93,8 @@
                                                             <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                          </a>
                                                     </div>
-                                                    <!-- <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
-                                                    <span class="input-clear-button"></span> -->
+                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
+                                                    <span class="input-clear-button"></span>
                                                 <!-- </div> -->
                                                 <input type="hidden" id="zone_id" name="id" />
 											  	<ul>
