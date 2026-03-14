@@ -57,21 +57,21 @@
                             </a>
                         </li>
                         <li>
-                            <a class="p-l-40" href="system-user.html">
+                            <!-- <a class="p-l-40" href="system-user.html">
                                 System User                 
-                            </a>
-                            <a class="p-l-40" href="customers.html">
+                            </a> -->
+                            <a class="p-l-40" href="{{url('customers')}}">
                                 Customers                   
                             </a>
                             <a class="p-l-40" href="{{url('vendors')}}">
                                 Vendors
                             </a>
-                            <a class="p-l-40" href="permission.html">
+                            <!-- <a class="p-l-40" href="permission.html">
                                 Permission
-                            </a>
+                            </a> -->
                         </li>                   
                         <li>
-                            <a class="" href="bookings.html">
+                            <a class="" href="{{url('bookings')}}">
                                 <span class="material-icons">access_time</span>
                                 Bookings
                             </a>

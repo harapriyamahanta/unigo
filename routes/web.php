@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -34,6 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit-vendor/{id}', [VendorController::class, 'edit'])->name('vendor.edit');
     Route::post('/store-vendor', [VendorController::class, 'store'])->name('vendor.store');
     Route::post('/update-vendor/{id}', [VendorController::class, 'update'])->name('vendor.update');
+    Route::get('/customers', [UserController::class, 'list'])->name('user.list');
+    Route::get('/customer-profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+    Route::get('/bookings', [BookingController::class, 'list'])->name('booking.list');
+     Route::get('/booking-invoice/{id}', [BookingController::class, 'invoice'])->name('booking.invoice');
 
 
 

@@ -53,6 +53,9 @@ class User extends Authenticatable
     public function useraddress(){
         return $this->hasOne('App\Models\UserAddress', 'user_id');
     }
+    public function homeaddress(){
+        return $this->hasOne('App\Models\UserAddress', 'user_id')->where('category','Home');
+    }
      public function usersubcategory(){
         return $this->hasOne('App\Models\UserSubCategory', 'user_id');
     }
