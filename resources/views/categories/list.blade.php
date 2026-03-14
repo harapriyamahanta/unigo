@@ -77,17 +77,28 @@
                                 <div class="popup custom-filter-popup">
                                     <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
+                                            
+                                           <form action="{{url('/store-category')}}" method="post">
                                             <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
                                                     <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="85" alt="User Image">
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
                                             </div> -->
-                                           <form action="{{url('/store-category')}}" method="post">
                                                 @csrf
+                                                <div class="item-input-wrap file-upload-img" >
+                                                    <div class="file-upload1">
+                                                        <!-- <a href="#" class="file-upload-img1" > -->
+                                                            <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="300" height="300" alt="User Image">
+                                                            <!-- <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span> -->
+                                                        <!-- </a> -->
+                                                    </div>
+                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
+                                                    <span class="input-clear-button"></span>
+                                                </div>
                                                 <input type="hidden" id="zone_id" name="id" />
 											  	<ul>
-												    <li class="item-content item-input">
+												    <li class="item-content-full item-input">
 												      	<div class="item-col">
 												        	<div class="item-title item-label">Name <span>*</span></div>
 												        	<div class="item-input-wrap">

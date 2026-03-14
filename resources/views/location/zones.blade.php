@@ -52,6 +52,7 @@
                                     <div class="dropdown-menu dropdown-menu-end header_drop_icon">
                                         <a href="Javascript:void(0)" onClick="openEdit({{$loc}})" class="dropdown-item">Edit</a>
                                         <a href="{{url('/zones/delete/'.$loc->id)}}" class="dropdown-item">Delete</a>
+                                        <a href="{{url('/locations?zone='.$loc->zone)}}"  class="dropdown-item">Add Locality</a>
                                     </div>
                                 </div>
                             </span>

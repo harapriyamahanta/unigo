@@ -40,7 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/customer-profile/{id}', [UserController::class, 'profile'])->name('user.profile');
     Route::get('/bookings', [BookingController::class, 'list'])->name('booking.list');
      Route::get('/booking-invoice/{id}', [BookingController::class, 'invoice'])->name('booking.invoice');
-
+    Route::get('/staff', [UserController::class, 'stafflist'])->name('staff.list');
+    Route::get('/roles', [UserController::class, 'roles'])->name('roles.list');
 
 
     Route::get('/zones', [LocationController::class, 'zones'])->name('location.zones');

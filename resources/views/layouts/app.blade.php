@@ -57,18 +57,18 @@
                             </a>
                         </li>
                         <li>
-                            <!-- <a class="p-l-40" href="system-user.html">
+                            <a class="p-l-40" href="{{url('staff')}}">
                                 System User                 
-                            </a> -->
+                            </a>
                             <a class="p-l-40" href="{{url('customers')}}">
                                 Customers                   
                             </a>
                             <a class="p-l-40" href="{{url('vendors')}}">
                                 Vendors
                             </a>
-                            <!-- <a class="p-l-40" href="permission.html">
-                                Permission
-                            </a> -->
+                            <a class="p-l-40" href="{{url('roles')}}">
+                                Roles
+                            </a>
                         </li>                   
                         <li>
                             <a class="" href="{{url('bookings')}}">

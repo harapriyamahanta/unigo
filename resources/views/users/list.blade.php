@@ -19,33 +19,33 @@
 			</div>
 		</div>
 	</div>
-		<div class="page-content header-bg">
+	<div class="page-content header-bg">
 	    	<!-- Search -->
-		            <div class="top-search">
-		            	<div class="container">
-			                <div class="search-area">
-			                    <form action="search">
-									<div class="list inset">
-										<ul>
-											<li class="d-flex">
-												<div class="item-icon">
-													<i class="search-icon fas fa-map-marker-alt"></i>
-												</div>
-												<div class="item-col">
-													<input type="text" placeholder="Search By Location or Pin Code">
-												</div>
-											</li>
-										</ul>
-									</div>
-			                    </form>
-			                </div>
-		            	</div>
-		        	</div>
+			<div class="top-search">
+				<div class="container">
+					<div class="search-area">
+						<form action="search">
+							<div class="list inset">
+								<ul>
+									<li class="d-flex">
+										<div class="item-icon">
+											<i class="search-icon fas fa-map-marker-alt"></i>
+										</div>
+										<div class="item-col">
+											<input type="text" placeholder="Search By Location or Pin Code">
+										</div>
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		        	<!-- /search -->
-      <div class="container">	        	
+      		<div class="container">	        	
 	        	<!-- Search tag -->
 	        	<div class="search-tag">                	
-					<h6>06 Active Plumbers</h6>
+					<h6>06 Active Customer</h6>
 					<span>In Sunabeda HAL Township</span>
 				</div>
 	        	<!-- /Search tag -->
@@ -257,7 +257,7 @@
 	        </div>
 
     
-</div>
+	</div>
 @endsection
 @section('customScript')
 
