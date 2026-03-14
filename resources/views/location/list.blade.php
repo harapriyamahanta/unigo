@@ -118,7 +118,8 @@
 											      	<div class="item-col">
 											        	<div class="item-title item-label">City</div>
 											        	<div class="item-input-wrap">
-											          		<input type="text" id="city" name="city" value="{{Request::get('zone')}}" >
+															{{$zone->zone}}
+											          		<input type="text" id="city" name="city" value="{{$zone->zone}}" >
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
