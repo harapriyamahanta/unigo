@@ -12,7 +12,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\UserDetail;
 use App\Models\UserSubCategory;
-
+use Spatie\Image\Image;
 class CategoryController extends Controller
 {
     
@@ -31,6 +31,15 @@ class CategoryController extends Controller
             $category = Category::find($request->id);
         }else{
             $category = new Category();
+        }
+        if($request->image){
+           $imageName = time().'.'.$request->image->extension();  
+
+        Image::load($request->image->path())
+                ->optimize()
+                ->save(public_path('storage/category/'). $imageName);
+           
+            $category->image = url('storage/category/'. $imageName);
         }
         $category->name = $request->category;
         $category->save();

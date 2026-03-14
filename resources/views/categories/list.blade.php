@@ -88,10 +88,10 @@
                                                 @csrf
                                                 <!-- <div class="item-input-wrap file-upload-img file-upload" > -->
                                                     <div class="file-upload">
-                                                        <a href="#" class="file-upload-img" > 
-                                                            <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="300" height="300" alt="User Image">
-                                                            <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
-                                                         </a>
+                                                        <!-- <a href="#" class="file-upload-img" >  -->
+                                                            <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
+                                                            <!-- <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span> -->
+                                                         <!-- </a> -->
                                                     </div>
                                                     <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
                                                     <span class="input-clear-button"></span>
