@@ -129,7 +129,7 @@
                                                             <textarea 
                                                                 id="desc"
                                                                 required
-                                                                name="desc"
+                                                                name="desciption"
                                                              placeholder="CCTV installation and repair service, with assured quality standards"></textarea>
                                                         </div>
                                                     </div>
@@ -140,30 +140,7 @@
                                                     </li>
                                                 </ul>
                                             
-											  	<ul>
-												    <li class="item-content item-input">
-												      	<div class="item-col">
-												        	<div class="item-title item-label">Sub Category Name <span>*</span></div>
-												        	<div class="item-input-wrap">
-												          		<input type="text" id="subcategory" name="subcategory" required>
-                                                                <input type="hidden" name="category" value="{{$category->id}}">
-												          		<span class="input-clear-button"></span>
-												        	</div>
-												      	</div>
-												    </li>
-                                                    
-												   
-												    <li class="bottom-button">
-												    	<div class="status-col">
-					                                    	<div class="status-btn">
-					                                            <button type="submit" class="btn success">Save</button>
-					                                        </div>
-					                                        <!-- <div class="status-btn">
-					                                            <button type="reset" class="btn view-eye">Clear</button>
-					                                        </div>	                                         -->
-				                                    	</div>
-												</li>
-											  	</ul>
+											  	
 										  	</form>
                                         </div>
                                     </div>
@@ -196,7 +173,7 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
-    $('#desc').val(item.desc);
+    $('#desc').val(item.desciption);
     var output = document.getElementById('output');
     output.src = item.image;
 }
