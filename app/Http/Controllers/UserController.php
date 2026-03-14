@@ -44,5 +44,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function stafflist(Request $request): View
+    {   
+        $vendors = User::with('userdetail','useraddress','homeaddress')->
+        where('type','staff')->get();
+        return view('staff.list', [
+            'vendors' => $vendors,
+            'page' => 'Vendors'
+        ]);
+    }
+
     
 }
