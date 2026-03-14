@@ -137,12 +137,13 @@ class AuthController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $user = $request->user();
+        try{
+        $user = Auth::user();
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->save();
-        $userDetail = $request->user()->userdetail;
+        $userDetail = UserDetail::where('user_id',$user->id)->first();
         if(!$userDetail){
             $userDetail = new UserDetail();
             $userDetail->user_id = $user->id;
@@ -190,6 +191,13 @@ class AuthController extends Controller
             'success' => true,
             'message' => 'Profile updated successfully',
         ]);
+        }catch(\Throwable $e){
+            return response()->json([
+            'success' => false,
+            'message' => $e->getMessage(),
+            //'otp' => $otp
+            ],500);
+       }
     }
 
     // User Logout API
