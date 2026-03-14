@@ -65,6 +65,7 @@ class CategoryController extends Controller
             $subcategory->image = url('storage/subcategory/'. $imageName);
         }
         $subcategory->name = $request->subcategory;
+        $subcategory->description = $request->description;
         
         $subcategory->save();
         return redirect('/sub-categories/'.$request->category);
@@ -139,6 +140,7 @@ class CategoryController extends Controller
            
             $subcat->image = url('storage/subcategory/'. $imageName);
         }
+        $subcat->description = $request->description;
         $subcat->save();
 
         return redirect('/sub-categories/'.$subcat->category_id)->with('status', 'profile-updated');
