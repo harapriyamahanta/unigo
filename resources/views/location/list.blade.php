@@ -118,8 +118,7 @@
 											      	<div class="item-col">
 											        	<div class="item-title item-label">City</div>
 											        	<div class="item-input-wrap">
-															{{$zone->zone}}
-											          		<input type="text" id="city" name="city" value="{{$zone->zone}}" >
+											          		<input type="text" id="city" name="city" value="{{$zone->zone}}" readonly>
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
@@ -356,7 +355,7 @@ function openAdd (){
     $('.addZoneBtn').html('Add Location');
     $('#address').val('');
 	$('#address2').val('');
-	$('#city').val('');
+	//$('#city').val('');
     $('#pincode').val('');
 }
 </script>
