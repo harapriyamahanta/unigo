@@ -24,7 +24,7 @@ class UserController extends Controller
     
     public function list(Request $request): View
     {   
-        $vendors = User::with('userdetail','useraddress')->
+        $vendors = User::with('userdetail','useraddress','homeaddress')->
         where('type','user')->get();
         return view('users.list', [
             'vendors' => $vendors,

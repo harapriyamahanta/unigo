@@ -90,15 +90,15 @@
 													</div>
 													<div class="doc-info-left">
 														<div class="doctor-img">
-															<a href="customer-profile.html">
+															<!-- <a href="customer-profile.html"> -->
 																<img src="assets/img/doctors/doctor-thumb-06.jpg" class="img-fluid" alt="User Image">
-															</a>
+															<!-- </a> -->
 														</div>
 														<div class="doc-info-cont">
 															<h4 class="doc-name">
 																<a href="customer-profile.html">{{$vendor->name}}</a>
 															</h4>
-															<p class="text-small">Qr.No: B-198, HAL Township</p>
+															<p class="text-small">{{$vendor?->homeaddress?->address}}</p>
 															<div class="pat-contact">
 																	<p><i class="fas fa-phone-alt"></i> +91 {{$vendor->phone}}</p>
 															</div>										
@@ -165,15 +165,15 @@
 													</div>
 													<div class="doc-info-left">
 														<div class="doctor-img">
-															<a href="customer-profile.html">
+															<!-- <a href="customer-profile.html"> -->
 																<img src="assets/img/doctors/doctor-thumb-06.jpg" class="img-fluid" alt="User Image">
-															</a>
+															<!-- </a> -->
 														</div>
 														<div class="doc-info-cont">
 															<h4 class="doc-name">
 																<a href="customer-profile.html">{{$vendor->name}}</a>
 															</h4>
-															<p class="text-small">Qr.No: B-198, HAL Township</p>
+															<p class="text-small">{{$vendor?->homeaddress?->address}}</p>
 															<div class="pat-contact">
 																	<p><i class="fas fa-phone-alt"></i> +91 {{$vendor->phone}}</p>
 															</div>										
