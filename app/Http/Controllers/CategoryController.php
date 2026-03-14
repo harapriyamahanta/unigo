@@ -55,6 +55,15 @@ class CategoryController extends Controller
             $subcategory = new SubCategory();
             $subcategory->category_id = $request->category;
         }
+        if($request->image){
+           $imageName = time().'.'.$request->image->extension();  
+
+            Image::load($request->image->path())
+                ->optimize()
+                ->save(public_path('storage/subcategory/'). $imageName);
+           
+            $subcategory->image = url('storage/subcategory/'. $imageName);
+        }
         $subcategory->name = $request->subcategory;
         
         $subcategory->save();
@@ -121,6 +130,15 @@ class CategoryController extends Controller
     {
         $subcat = SubCategory::where('id',$id)->first();
         $subcat->name = $request->subcategory;
+        if($request->image){
+           $imageName = time().'.'.$request->image->extension();  
+
+            Image::load($request->image->path())
+                ->optimize()
+                ->save(public_path('storage/subcategory/'). $imageName);
+           
+            $subcat->image = url('storage/subcategory/'. $imageName);
+        }
         $subcat->save();
 
         return redirect('/sub-categories/'.$subcat->category_id)->with('status', 'profile-updated');

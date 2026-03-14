@@ -92,7 +92,54 @@
                                             </div> -->
                                            <form action="{{url('/store-subcategories')}}" method="post"  enctype="multipart/form-data">
                                                 @csrf
+                                                <ul><li>
+                                                    <div class="file-upload">
+                                                        <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
+                                                    
+                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)"  />
+                                                    <span class="input-clear-button"></span>
+                                                    </div>
+                                                </li>
+                                                </ul>
                                                 <input type="hidden" id="zone_id" name="id" />
+                                                 <ul>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-col">
+                                                            <div class="item-title item-label">Category Name <span>*</span></div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="text" placeholder="{{$category->name}}"  disabled>
+                                                                <span class="input-clear-button"></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-col">
+                                                            <div class="item-title item-label">Sub Category Name <span>*</span></div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="text" id="subcategory" name="subcategory" required>
+                                                                <input type="hidden" name="category" value="{{$category->id}}">
+                                                                <span class="input-clear-button"></span>
+                                                            </div>
+                                                        </div>
+                                                    </li> 
+                                                    <li class="item-content-full item-input">
+                                                    <div class="item-col">
+                                                        <div class="item-title item-label">How it Works?</div>
+                                                        <div class="item-input-wrap">
+                                                            <textarea 
+                                                                id="desc"
+                                                                required
+                                                                name="desc"
+                                                             placeholder="CCTV installation and repair service, with assured quality standards"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </li>                                            
+                                                    
+                                                    <li class="bottom-button">
+                                                        <button class="btn">Add Sub Category</button>
+                                                    </li>
+                                                </ul>
+                                            
 											  	<ul>
 												    <li class="item-content item-input">
 												      	<div class="item-col">
@@ -149,8 +196,9 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
+    $('#desc').val(item.desc);
     var output = document.getElementById('output');
-    output.src = '#';
+    output.src = item.image;
 }
 function openAdd (){
    // console.log(item,'item');
@@ -159,8 +207,9 @@ function openAdd (){
     $('.title').html('Add Sub Category');
     $('.addZoneBtn').html('Add Sub Category');
     $('#subcategory').val('');
+    $('#desc').val('');
     var output = document.getElementById('output');
-    output.src = '#';
+    output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
 </script>
 
