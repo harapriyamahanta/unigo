@@ -72,13 +72,13 @@ class AuthController extends Controller
                 'message' => 'OTP sent successfully',
                 'otp' => $otp
             ],200);
-        }else{
-             return response()->json([
-            'success' => false,
-            'message' => 'User not Found',
-            'otp' => $otp
-            ],500);
-        }
+        // }else{
+        //      return response()->json([
+        //     'success' => false,
+        //     'message' => 'User not Found',
+        //     'otp' => $otp
+        //     ],500);
+        // }
        }catch(\Throwable $e){
             return response()->json([
             'success' => false,
