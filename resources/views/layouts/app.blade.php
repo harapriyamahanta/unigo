@@ -41,7 +41,7 @@
                         <li>
                             <a class="" href="{{url('/zones')}}">
                                 <span class="material-icons">pages</span>
-                                Zones
+                                City
                             </a>
                         </li>
                         <li>
@@ -76,6 +76,12 @@
                                 Bookings
                             </a>
                         </li>
+                         <li>
+                            <a class="" href="{{url('/banners')}}">
+                                <span class="material-icons">pages</span>
+                                Banners
+                            </a>
+                        </li>
                         <li>
                             <a class="" href="reviews.html">
                                 <span class="material-icons">access_time</span>
@@ -88,12 +94,7 @@
                                 Reports
                             </a>
                         </li> 
-                        <li>
-                            <a class="" href="{{url('/banners')}}">
-                                <span class="material-icons">pages</span>
-                                Banners
-                            </a>
-                        </li>
+                       
                         <li>
                             <a class="" href="advertisements.html">
                                 <span class="material-icons">message</span>
