@@ -139,6 +139,10 @@ class AuthController extends Controller
     {
         try{
         $user = Auth::user();
+        return response()->json([
+            'user' => $user
+        ]);
+
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
