@@ -10,7 +10,7 @@
 				</a>
 			</div>
 			<div class="sliding custom-title">Vendor Onboard
-				<span class="custom-subtitle"></span>
+				<span class="custom-subtitle">{{$category->name}}</span>
 			</div>
 			<div class="right d-flex">
 				<a href="notifications.html" class="link icon-only"><i class="material-icons">notifications</i></a>

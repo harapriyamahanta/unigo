@@ -79,8 +79,10 @@ class VendorController extends Controller
     {   
         $user = User::with('userdetail','useraddress','usersubcategory')->find($id);
         $subcategories = SubCategory::where('category_id',$user->userdetail->category_id)->get();
+        $category = Category::find($user->userdetail->category_id);
         return view('vendor.edit', [
             'vendor' => $user,
+            'category' => $category,
             'subcategories' => $subcategories,
             'usersubcat' => $user?->usersubcategory ?  $user?->usersubcategory?->pluck('subcategory_id')?->toArray():[],
             'page' => 'Edit Vendor',
