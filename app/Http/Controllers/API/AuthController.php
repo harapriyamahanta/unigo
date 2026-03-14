@@ -128,7 +128,7 @@ class AuthController extends Controller
 
     public function home(Request $request){
         $banners = Banner::pluck('banner')->toArray();
-        $categories = Category::select('name')->get();
+        $categories = Category::select('name','image')->get();
         return response()->json([
             'banner' => $banners,
             'categories' => $categories,
