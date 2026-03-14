@@ -69,6 +69,7 @@
 										<div class="focused-content">
 											<div class="swiper-container">
 												@foreach($vendors as $vendor)
+												@if($vendor->status=='ACTIVE')
 												<!-- User Panel Start -->
 												<div class="doctor-widget">
 													<div class="patient-top-details">
@@ -118,7 +119,7 @@
 													</div>
 												</div>
 												<!-- User Panel End -->
-												
+												@endif
 												@endforeach
 												
 												
@@ -141,70 +142,60 @@
 					            	<div class="focused segments mt-0 pb-0 search-doctor">
 										<div class="focused-content">
 											<div class="swiper-container">
+												@foreach($vendors as $vendor)
+
+												@if($vendor->status=='INACTIVE')
 												<!-- User Panel Start -->
 												<div class="doctor-widget">
 													<div class="patient-top-details">
 														<div>
-															<span class="invoice-id">Cust ID - FGU0025</span>
+															<span class="invoice-id">Cust ID - FGC0025</span>
 														</div>
-														<div>
-														  <span class="date-col">
-														    <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link">
-														        <i class="material-icons">more_vert</i>
-														      </a>
-														      <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-														          <a href="#" class="dropdown-item">Inactive</a>
-														          <a href="#" class="dropdown-item">Delete</a>
-														      </div>
-														  </span>
-														</div>
+															<div>
+																<span class="date-col">
+																	<a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link">
+								                                      <i class="material-icons">more_vert</i>
+								                                    </a>
+								                                    <div class="dropdown-menu dropdown-menu-end header_drop_icon">
+								                                        <a href="#" class="dropdown-item">Inactive</a>
+								                                        <!-- <a href="#" class="dropdown-item">Delete</a> -->
+								                                    </div>
+								                                </span>
+															</div>
 													</div>
 													<div class="doc-info-left">
 														<div class="doctor-img">
-															<a href="vendor-profile.html">
-																<img src="assets/img/doctors/doctor-thumb-08.jpg" class="img-fluid" alt="User Image">
+															<a href="customer-profile.html">
+																<img src="assets/img/doctors/doctor-thumb-06.jpg" class="img-fluid" alt="User Image">
 															</a>
 														</div>
 														<div class="doc-info-cont">
 															<h4 class="doc-name">
-																<a href="vendor-profile.html">Ramesh Swain</a>
+																<a href="customer-profile.html">{{$vendor->name}}</a>
 															</h4>
-															<div class="patient-details-col">
-																<span>Plumber</span>
-																<span class="doc-experince">5+ Exp</span>
-															</div>
-															<div class="patient-details-col mt-3 mb-1">
-																<span><i class="fas fa-map-marker-alt"></i> Qr.No: B-198, HAL Township</span>
-															</div>																	
-															<div class="patient-details-col">
-																<span><i class="fas fa-phone-alt"></i> +91 988 560 2324</span>
-															</div>		
+															<p class="text-small">Qr.No: B-198, HAL Township</p>
+															<div class="pat-contact">
+																	<p><i class="fas fa-phone-alt"></i> +91 {{$vendor->phone}}</p>
+															</div>										
 														</div>
 													</div>
 													<div class="doc-info-right">
 														<div class="clini-infos">
 															<ul>
-																<li>Booking: 25</li>
-																<li>
-																	<div class="rating">
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<span class="d-inline-block average-rating">20</span>
-																</div>
-																</li>
+																<li>Bookings: 05</li>
+																<li>{{$vendor->created_at}}</li>
 															</ul>
 														</div>
 														<div class="clinic-booking">
 															<div class="clinic-btn">
-																<a class="apt-btn" href="vendor-dashboard.html">View Profile</a>
+																<a class="apt-btn" href="{{url('customer-profile/'.$vendor->id)}}">View Profile</a>
 															</div>
 														</div>
 													</div>
 												</div>
 												<!-- User Panel End -->
+												@endif
+												@endforeach
 												
 											</div>
 										</div>
