@@ -35,11 +35,11 @@ class LocationController extends Controller
         
 
         if ($request->bearerToken()) {
-            //$locations = UserAddress::get();
-            $locations = Location::with('zone')->whereHas('zone', function($q)use ($request) {
-               return $q->where('zone',$request->city);
-            })->get();
-            $zone = Zone::where('zone',$request->city)->first();
+            $locations = UserAddress::where('user_id',Auth::user()->id)->get();
+            // $locations = Location::with('zone')->whereHas('zone', function($q)use ($request) {
+            //    return $q->where('zone',$request->city);
+            // })->get();
+            // $zone = Zone::where('zone',$request->city)->first();
             $locationMapping = [];
             foreach($locations as $loc){
                 $newLoc = [
@@ -103,7 +103,11 @@ class LocationController extends Controller
 
     public function localaddresses(Request $request): View|JsonResponse
     {   
-        $locations = Location::where('city',$request->city)->get();
+        //$locations = Location::where('city',$request->city)->get();
+        $locations = Location::with('zone')->whereHas('zone', function($q)use ($request) {
+               return $q->where('zone',$request->city);
+            })->get();
+            $zone = Zone::where('zone',$request->city)->first();
 
         $locationMapping = [];
             foreach($locations as $loc){
