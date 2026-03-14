@@ -27,8 +27,9 @@
 				 	<ul class="nav nav-tabs">
 					    <li><a href="#basic-info" data-bs-toggle="tab" class="active">Basic Info</a></li>
 					    <li><a href="#contact-details" data-bs-toggle="tab">Contact Details</a></li>
+						<li><a href="#document-details" data-bs-toggle="tab">Document Details</a></li>
 					    <li><a href="#categories" data-bs-toggle="tab">Sub Categories</a></li>
-					    <li><a href="#vehicle" data-bs-toggle="tab">Vehicle Details</a></li>
+					    <!-- <li><a href="#vehicle" data-bs-toggle="tab">Vehicle Details</a></li> -->
 				  	</ul>
 			  	</div>
 
@@ -234,6 +235,92 @@
 												    	<div class="status-col">
 					                                    	<div class="status-btn">
 					                                            <button type="submit" class="btn success">Update</button>
+					                                        </div>
+					                                        <!-- <div class="status-btn">
+					                                            <button type="reset" class="btn view-eye">Clear</button>
+					                                        </div>	                                         -->
+				                                    	</div>
+												</li>
+											</ul>
+										</form>
+							      	</div>
+				          		</div>
+				          	</div>
+				        </div>
+			      	</div>
+
+					<div class="tab-pane" id="document-details">
+				      	<div class="panel panel-default">
+				        	<div id="collapseTwo" class="panel-collapse collapse">
+				          		<div class="panel-body">
+				          			<div class="setting-widget">
+							      		<div class="widget-title">
+											<h5>Contact Details</h5>
+										</div>
+										<form action="{{url('/update-vendor/'.$vendor->id)}}" method="post">
+                                                @csrf
+                                                <input type="hidden"  name="section" value="address" />
+											<ul>
+												
+												<li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">Address Line 1</div>
+											        	<div class="item-input-wrap">
+											          		<input name="address" required value="{{$vendor?->useraddress?->address}}" />
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    <li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">Address Line 2</div>
+											        	<div class="item-input-wrap">
+											          		<input type="text" required value="{{$vendor?->useraddress?->address2}}" name="address2">
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    <li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">City</div>
+											        	<div class="item-input-wrap">
+											          		<input type="text" name="city" value="{{$vendor?->useraddress?->city}}">
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    <li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">State</div>
+											        	<div class="item-input-wrap">
+											          		<input type="text" name="state" value="{{$vendor?->useraddress?->state}}">
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    <li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">District</div>
+											        	<div class="item-input-wrap">
+											          		<input type="text" name="country" value="{{$vendor?->useraddress?->district}}">
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    <li class="item-content item-input">
+											      	<div class="item-col">
+											        	<div class="item-title item-label">Postal Code</div>
+											        	<div class="item-input-wrap">
+											          		<input type="text" name="pincode" value="{{$vendor?->useraddress?->pincode}}">
+											          		<span class="input-clear-button"></span>
+											        	</div>
+											      	</div>
+											    </li>
+											    
+											     <li class="bottom-button">
+												    	<div class="status-col">
+					                                    	<div class="status-btn">
+					                                            <!-- <button type="submit" class="btn success">Update</button> -->
 					                                        </div>
 					                                        <!-- <div class="status-btn">
 					                                            <button type="reset" class="btn view-eye">Clear</button>
