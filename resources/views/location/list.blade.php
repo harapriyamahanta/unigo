@@ -108,7 +108,7 @@
 											      	<div class="item-col">
 											        	<div class="item-title item-label">Address2</div>
 											        	<div class="item-input-wrap">
-											          		<input type="text" id="address2"  name="address2" required />
+											          		<input type="text" id="address2"  name="address2"  />
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
@@ -116,9 +116,9 @@
 											    
 											    <li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">District</div>
+											        	<div class="item-title item-label">City</div>
 											        	<div class="item-input-wrap">
-											          		<input type="text" id="city" name="city" required>
+											          		<input type="text" id="city" name="city" value="{{Request->get('zone')}}" readonly>
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
