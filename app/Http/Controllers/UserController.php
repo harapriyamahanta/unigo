@@ -54,5 +54,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function roles(Request $request): View
+    {   
+        $roles = [];//User::with('userdetail','useraddress','homeaddress')->
+       // where('type','staff')->get();
+        return view('roles.list', [
+            'roles' => $vendors,
+            'page' => 'Roles'
+        ]);
+    }
+
     
 }
