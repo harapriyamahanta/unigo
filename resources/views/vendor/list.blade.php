@@ -45,7 +45,7 @@
       <div class="container">	        	
 	        	<!-- Search tag -->
 	        	<div class="search-tag">                	
-					<h6>06 Active Plumbers</h6>
+					<h6>{{count($vendors)}} Active Vendors</h6>
 					<span>In Sunabeda HAL Township</span>
 				</div>
 	        	<!-- /Search tag -->

@@ -9,7 +9,7 @@
 					</i>
 				</a>
 			</div>
-			<div class="sliding custom-title">All Customers
+			<div class="sliding custom-title">All Staff
 				<!-- <span class="custom-subtitle">Plumber</span> -->
 			</div>
 			<div class="right d-flex">
@@ -45,7 +45,7 @@
       		<div class="container">	        	
 	        	<!-- Search tag -->
 	        	<div class="search-tag">                	
-					<h6>06 Active Customer</h6>
+					<h6>{{count($vendors)}} Active Staff</h6>
 					<span>In Sunabeda HAL Township</span>
 				</div>
 	        	<!-- /Search tag -->
