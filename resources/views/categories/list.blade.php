@@ -86,16 +86,16 @@
                                                 </a>
                                             </div> -->
                                                 @csrf
-                                                <div class="item-input-wrap file-upload-img file-upload" >
+                                                <!-- <div class="item-input-wrap file-upload-img file-upload" > -->
                                                     <div class="file-upload">
-                                                        <!-- <a href="#" class="file-upload-img1" > -->
+                                                        <a href="#" class="file-upload-img1" > -->
                                                             <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="300" height="300" alt="User Image">
-                                                            <!-- <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span> -->
-                                                        <!-- </a> -->
+                                                            <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
+                                                         </a>
                                                     </div>
-                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
-                                                    <span class="input-clear-button"></span>
-                                                </div>
+                                                    <!-- <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
+                                                    <span class="input-clear-button"></span> -->
+                                                <!-- </div> -->
                                                 <input type="hidden" id="zone_id" name="id" />
 											  	<ul>
 												    <li class="item-content-full item-input">
