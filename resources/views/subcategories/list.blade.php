@@ -90,7 +90,7 @@
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
                                             </div> -->
-                                           <form action="{{url('/store-subcategories')}}" method="post">
+                                           <form action="{{url('/store-subcategories')}}" method="post"  enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" id="zone_id" name="id" />
 											  	<ul>
@@ -149,6 +149,8 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
+    var output = document.getElementById('output');
+    output.src = '#';
 }
 function openAdd (){
    // console.log(item,'item');
@@ -157,6 +159,8 @@ function openAdd (){
     $('.title').html('Add Sub Category');
     $('.addZoneBtn').html('Add Sub Category');
     $('#subcategory').val('');
+    var output = document.getElementById('output');
+    output.src = '#';
 }
 </script>
 

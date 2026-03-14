@@ -78,18 +78,18 @@
                                     <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
                                             
-                                           <form action="{{url('/store-category')}}" method="post">
+                                           <form action="{{url('/store-category')}}" method="post" enctype="multipart/form-data">
                                            
                                                 @csrf
                                                 <ul><li>
                                                     <div class="file-upload">
-                                                            <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
+                                                        <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
-                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
+                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)"  />
                                                     <span class="input-clear-button"></span>
                                                     </div>
-</li>
-</ul>
+                                                </li>
+                                                </ul>
                                                 <input type="hidden" id="zone_id" name="id" />
 
 											  	<ul>
@@ -147,6 +147,8 @@ function openEdit (item){
     $('.title').html('Edit Category');
     $('.addZoneBtn').html('Update Category');
     $('#category').val(item.name);
+    var output = document.getElementById('output');
+    output.src = item.image;
 }
 function openAdd (){
    // console.log(item,'item');
@@ -155,6 +157,8 @@ function openAdd (){
     $('.title').html('Add Category');
     $('.addZoneBtn').html('Add Category');
     $('#category').val('');
+    var output = document.getElementById('output');
+    output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
 var loadFile = function(event) {
     var output = document.getElementById('output');
