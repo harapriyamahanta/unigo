@@ -9,7 +9,7 @@
                 </i>
             </a>
         </div>
-        <div class="sliding custom-title">Zones</div>
+        <div class="sliding custom-title">City</div>
         <div class="right d-flex">
             <a href="javascript:void(0)" onClick="openAdd()" class="link icon-only" title="Add Zone"><i class="material-icons">add</i></a>
             <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link"><i class="material-icons">more_vert</i></a>
@@ -68,7 +68,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-widget-title title">Add Zone</h5>
+                                <h5 class="modal-widget-title title">Add City</h5>
                                 <a class="link popup-close close popup-close-right" href="#" data-bs-dismiss="modal" aria-label="Close">
                                     <i class="fas fa-times"></i>
                                 </a>
@@ -77,12 +77,12 @@
                                 <div class="popup custom-filter-popup">
                                     <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
-                                            <div class="file-upload">
+                                            <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
                                                     <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="85" alt="User Image">
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                             <form action="{{url('/store-zones')}}" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" id="zone_id" name="id" />
@@ -106,7 +106,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="bottom-button">
-                                                        <button class="btn addZoneBtn">Add Zone</button>
+                                                        <button class="btn addZoneBtn">Add City</button>
                                                     </li>
                                                 </ul>
                                             </form>
@@ -138,8 +138,8 @@ function openEdit (item){
     //console.log(item,'item');
     $('#zone-modal').modal('show');
     $('#zone_id').val(item.id);
-    $('.title').html('Edit Zone');
-    $('.addZoneBtn').html('Update Zone');
+    $('.title').html('Edit City');
+    $('.addZoneBtn').html('Update City');
     $('#zone').val(item.zone);
     $('#pincode').val(item.pincode);
 }
@@ -147,8 +147,8 @@ function openAdd (){
    // console.log(item,'item');
     $('#zone-modal').modal('show');
     $('#zone_id').val('');
-    $('.title').html('Add Zone');
-    $('.addZoneBtn').html('Add Zone');
+    $('.title').html('Add City');
+    $('.addZoneBtn').html('Add City');
     $('#zone').val('');
     $('#pincode').val('');
 }
