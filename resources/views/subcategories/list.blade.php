@@ -129,14 +129,14 @@
                                                             <textarea 
                                                                 id="desc"
                                                                 required
-                                                                name="desciption"
+                                                                name="description"
                                                              placeholder="CCTV installation and repair service, with assured quality standards"></textarea>
                                                         </div>
                                                     </div>
                                                 </li>                                            
                                                     
                                                     <li class="bottom-button">
-                                                        <button class="btn">Add Sub Category</button>
+                                                        <button class="btn addZoneBtn">Add Sub Category</button>
                                                     </li>
                                                 </ul>
                                             
@@ -173,7 +173,7 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
-    $('#desc').val(item.desciption);
+    $('#desc').val(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
 }
