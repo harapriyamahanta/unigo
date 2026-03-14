@@ -57,7 +57,13 @@ class AuthController extends Controller
         $otp = rand(1000,9999);
 
         $user = User::where('phone',$request->phone)->first();
-        if($user){
+        if(!$user){
+            $user = new User();
+            $user->name = $request->phone;
+            $user->phone = $request->phone;
+            $user->type = 'user';
+
+        }
             $user->verifyOtp = $otp;
             $user->save();
 
