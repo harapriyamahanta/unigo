@@ -81,15 +81,7 @@
                                            <form action="{{url('/store-role')}}" method="post" enctype="multipart/form-data">
                                            
                                                 @csrf
-                                                <ul><li>
-                                                    <div class="file-upload">
-                                                        <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
-                                                    
-                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)"  />
-                                                    <span class="input-clear-button"></span>
-                                                    </div>
-                                                </li>
-                                                </ul>
+                                                
                                                 <input type="hidden" id="zone_id" name="id" />
 
 											  	<ul>
