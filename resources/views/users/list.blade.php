@@ -51,8 +51,8 @@
 	        	<!-- /Search tag -->
 				<div class="tab-col m-t-20 p-b-0">
 				 	<ul class="nav nav-tabs">
-					    <li><a href="#active-vendor" data-bs-toggle="tab" class="active">Active Vendor</a></li>  
-					    <li><a href="#inactive-vendor" data-bs-toggle="tab">Inactive Vendor</a></li>
+					    <li><a href="#active-vendor" data-bs-toggle="tab" class="active">Active Customer</a></li>  
+					    <li><a href="#inactive-vendor" data-bs-toggle="tab">Inactive Customer</a></li>
 					  
 				  	</ul>
 			  	</div>
@@ -73,67 +73,54 @@
 												<div class="doctor-widget">
 													<div class="patient-top-details">
 														<div>
-															<span class="invoice-id">Cust ID - FGU0025</span>
+															<span class="invoice-id">Cust ID - FGC0025</span>
 														</div>
-														<div>
-														  <span class="date-col">
-														    <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link">
-														        <i class="material-icons">more_vert</i>
-														      </a>
-														      <div class="dropdown-menu dropdown-menu-end header_drop_icon">
-														          <a href="#" class="dropdown-item">Inactive</a>
-														          <a href="#" class="dropdown-item">Delete</a>
-														      </div>
-														  </span>
-														</div>
+															<div>
+																<span class="date-col">
+																	<a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link">
+								                                      <i class="material-icons">more_vert</i>
+								                                    </a>
+								                                    <div class="dropdown-menu dropdown-menu-end header_drop_icon">
+								                                        <a href="#" class="dropdown-item">Inactive</a>
+								                                        <!-- <a href="#" class="dropdown-item">Delete</a> -->
+								                                    </div>
+								                                </span>
+															</div>
 													</div>
 													<div class="doc-info-left">
 														<div class="doctor-img">
-															<a href="vendor-profile.html">
+															<a href="customer-profile.html">
 																<img src="assets/img/doctors/doctor-thumb-06.jpg" class="img-fluid" alt="User Image">
 															</a>
 														</div>
 														<div class="doc-info-cont">
 															<h4 class="doc-name">
-																<a href="vendor-profile.html">{{$vendor->userdetail?->first_name}} {{$vendor->userdetail?->last_name}}</a>
+																<a href="customer-profile.html">{{$vendor->name}}</a>
 															</h4>
-															<div class="patient-details-col">
-																<span>{{$vendor->userdetail?->usercategory?->name}}</span>
-																<span class="doc-experince">5+ Exp</span>
-															</div>
-															<div class="patient-details-col mt-3 mb-1">
-																<span><i class="fas fa-map-marker-alt"></i> {{$vendor->useraddress?->address}}</span>
-															</div>																	
-															<div class="patient-details-col">
-																<span><i class="fas fa-phone-alt"></i> {{$vendor->userdetail?->phone}}</span>
-															</div>		
+															<p class="text-small">Qr.No: B-198, HAL Township</p>
+															<div class="pat-contact">
+																	<p><i class="fas fa-phone-alt"></i> +91 {{$vendor->phone}}</p>
+															</div>										
 														</div>
 													</div>
 													<div class="doc-info-right">
 														<div class="clini-infos">
 															<ul>
-																<li>Booking: 05</li>
-																<li>
-																	<div class="rating">
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star"></i>
-																	<span class="d-inline-block average-rating">17</span>
-																</div>
-																</li>
+																<li>Bookings: 05</li>
+																<li>{{$vendor->created_at}}</li>
 															</ul>
 														</div>
 														<div class="clinic-booking">
 															<div class="clinic-btn">
-																<a class="apt-btn" href="{{url('customer-profile/'.$vendor->id)}}">Edit Profile</a>
+																<a class="apt-btn" href="{{url('customer-profile/'.$vendor->id)}}">View Profile</a>
 															</div>
 														</div>
 													</div>
 												</div>
-												@endforeach
 												<!-- User Panel End -->
+												
+												@endforeach
+												
 												
 											</div>
 										</div>
