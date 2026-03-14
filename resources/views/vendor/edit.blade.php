@@ -264,58 +264,24 @@
 												
 												<li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Address Line 1</div>
+											        	<div class="item-title item-label">Adhar Card</div>
 											        	<div class="item-input-wrap">
-											          		<input name="address" required value="{{$vendor?->useraddress?->address}}" />
+											          		<input type="file" name="adhar_card" required />
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
 											    </li>
 											    <li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Address Line 2</div>
+											        	<div class="item-title item-label">Pan Card</div>
 											        	<div class="item-input-wrap">
-											          		<input type="text" required value="{{$vendor?->useraddress?->address2}}" name="address2">
+											          		<input type="file" name="pan_card" required />
 											          		<span class="input-clear-button"></span>
 											        	</div>
 											      	</div>
 											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">City</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="city" value="{{$vendor?->useraddress?->city}}">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">State</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="state" value="{{$vendor?->useraddress?->state}}">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">District</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="country" value="{{$vendor?->useraddress?->district}}">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
-											    <li class="item-content item-input">
-											      	<div class="item-col">
-											        	<div class="item-title item-label">Postal Code</div>
-											        	<div class="item-input-wrap">
-											          		<input type="text" name="pincode" value="{{$vendor?->useraddress?->pincode}}">
-											          		<span class="input-clear-button"></span>
-											        	</div>
-											      	</div>
-											    </li>
+											    
+											    
 											    
 											     <li class="bottom-button">
 												    	<div class="status-col">
