@@ -102,6 +102,15 @@ class CategoryController extends Controller
     {
         $location = Category::where('id',$id)->first();
         $location->name = $request->category;
+        if($request->image){
+           $imageName = time().'.'.$request->image->extension();  
+
+            Image::load($request->image->path())
+                ->optimize()
+                ->save(public_path('storage/category/'). $imageName);
+           
+            $location->image = url('storage/category/'. $imageName);
+        }
         $location->save();
 
         return redirect('/categories')->with('status', 'profile-updated');
