@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="item-cat">
                                     <div class="item-title">
-                                        {{$loc->address}}, {{$loc->city}}, {{$loc->pincode}}
+                                        {{$loc->address}},{{$loc->address2}}, {{$loc->city}}, {{$loc->pincode}}
                                     </div>
                                 </div>
                                 <div class="right d-flex">                    
@@ -83,12 +83,12 @@
                                 <div class="popup custom-filter-popup">
                                     <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
-                                            <div class="file-upload">
+                                            <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
                                                     <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle" width="85" alt="User Image">
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                             <form action="{{url('/store-location')}}" method="post">
                                                 @csrf
 												<input type="hidden" id="zone_id" name="id" />
@@ -106,7 +106,7 @@
 
 												<li class="item-content item-input">
 											      	<div class="item-col">
-											        	<div class="item-title item-label">Address2</div>
+											        	<div class="item-title item-label">Locality</div>
 											        	<div class="item-input-wrap">
 											          		<input type="text" id="address2"  name="address2"  />
 											          		<span class="input-clear-button"></span>
