@@ -139,9 +139,9 @@ class AuthController extends Controller
     {
         try{
         $user = Auth::user();
-        return response()->json([
-            'user' => $user
-        ]);
+        // return response()->json([
+        //     'user' => $user
+        // ]);
 
         $user->name = $request->name;
         $user->phone = $request->phone;
@@ -153,11 +153,11 @@ class AuthController extends Controller
             $userDetail->user_id = $user->id;
         }
         $userDetail->gender = $request->gender;
-        $userDetail->first_name = $request->name;
-        $userDetail->last_name = $request->name;
-        $userDetail->dob = $request->dob;
-        $userDetail->gender = $request->gender;
-        $userDetail->phone = $request->phone;
+        $userDetail->first_name = $request->name ?? $user->name;
+        $userDetail->last_name = $request->name ?? $user->name;
+        $userDetail->dob = $request->dob ?? '01-09-2000';
+        $userDetail->gender = $request->gender ?? 'Male';
+        $userDetail->phone = $request->phone ?? $user->phone;
         if($request->image){
             $base64Image = $request->input('image');
             if (preg_match('/^data:image\/(\w+);base64,/', $base64Image, $type)) {
