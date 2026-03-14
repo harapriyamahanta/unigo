@@ -144,7 +144,7 @@ class AuthController extends Controller
         // ]);
 
         $user->name = $request->name;
-        $user->phone = $request->phone;
+        //$user->phone = $request->phone;
         $user->email = $request->email;
         $user->save();
         $userDetail = UserDetail::where('user_id',$user->id)->first();
