@@ -84,9 +84,10 @@
                                                 <div>
                                                     <div class="file-upload">
                                                             <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
-                                                    </div>
+                                                    
                                                     <input type="file"  name="image" accept="image/*" onchange="loadFile(event)" required />
                                                     <span class="input-clear-button"></span>
+                                                    </div>
                                                 </div>
                                                 <input type="hidden" id="zone_id" name="id" />
 
