@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     public function subcategory(){
-        return $this->hasMany('App\Models\SubCategory', 'category_id');
+        return $this->hasMany('App\Models\SubCategory', 'category_id')->select('name','image','descrption');
     }
 }
