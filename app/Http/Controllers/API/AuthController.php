@@ -128,7 +128,7 @@ class AuthController extends Controller
 
     public function home(Request $request){
         $banners = Banner::pluck('banner')->toArray();
-        $categories = Category::select('name','image')->get();
+        $categories = Category::with('subcategory')->select('name','image')->get();
         return response()->json([
             'banner' => $banners,
             'categories' => $categories,
@@ -139,9 +139,6 @@ class AuthController extends Controller
     {
         try{
         $user = Auth::user();
-        // return response()->json([
-        //     'user' => $user
-        // ]);
 
         $user->name = $request->name;
         //$user->phone = $request->phone;
@@ -213,5 +210,39 @@ class AuthController extends Controller
             'success' => true,
             'message' => 'Logout successful.',
         ]);
+    }
+
+
+    // vendor
+
+    public function vendorlogin(Request $request)
+    {
+       try{
+        $otp = rand(1000,9999);
+
+        $user = User::where('phone',$request->phone)->first();
+        if(!$user){
+            $user = new User();
+            $user->name = $request->phone;
+            $user->phone = $request->phone;
+            $user->type = 'vendor';
+
+        }
+            $user->verifyOtp = $otp;
+            $user->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'OTP sent successfully',
+                'otp' => $otp
+            ],200);
+        
+       }catch(\Throwable $e){
+            return response()->json([
+            'success' => false,
+            'message' => 'User not Found',
+            'otp' => $otp
+            ],500);
+       }
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\LocationController;
 Route::post('/signup', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/verify', [AuthController::class, 'verify']);
+Route::post('/vendor-login', [AuthController::class, 'vendorlogin']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
