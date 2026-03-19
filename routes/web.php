@@ -8,6 +8,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -41,7 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/bookings', [BookingController::class, 'list'])->name('booking.list');
      Route::get('/booking-invoice/{id}', [BookingController::class, 'invoice'])->name('booking.invoice');
     Route::get('/staff', [UserController::class, 'stafflist'])->name('staff.list');
-    Route::get('/roles', [UserController::class, 'roles'])->name('roles.list');
+    Route::get('/roles', [RoleController::class, 'list'])->name('roles.list');
+    Route::post('/store-role', [RoleController::class, 'store'])->name('roles.store');
 
 
     Route::get('/zones', [LocationController::class, 'zones'])->name('location.zones');
