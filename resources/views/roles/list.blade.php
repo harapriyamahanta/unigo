@@ -89,7 +89,7 @@
 												      	<div class="item-col">
 												        	<div class="item-title item-label">Name <span>*</span></div>
 												        	<div class="item-input-wrap">
-												          		<input type="text" id="category" name="category" required>
+												          		<input type="text" id="name" name="name" required>
 												          		<span class="input-clear-button"></span>
 												        	</div>
 												      	</div>
