@@ -9,6 +9,9 @@ Route::post('/signup', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/verify', [AuthController::class, 'verify']);
 Route::post('/vendor-login', [AuthController::class, 'vendorlogin']);
+Route::get('/cities', [LocationController::class, 'cities']);
+Route::get('/localaddresses', [LocationController::class, 'localaddresses']);
+Route::get('/home', [AuthController::class, 'home']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -16,11 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/profile', [AuthController::class, 'updateProfile']);
     Route::get('/address', [LocationController::class, 'list']);
     Route::post('/address', [LocationController::class, 'store']);
-    Route::delete('/address/{id}', [LocationController::class, 'destroy']);
-    Route::get('/cities', [LocationController::class, 'cities']);
-    Route::get('/localaddresses', [LocationController::class, 'localaddresses']);
-    Route::get('/home', [AuthController::class, 'home']);
-    
+    Route::delete('/address/{id}', [LocationController::class, 'destroy']); 
 });
 
 Route::get('/user', function (Request $request) {
