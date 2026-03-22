@@ -11,7 +11,9 @@ class BlogController extends Controller
     public function list(Request $request)
     {   
         $blogs = Blog::get();
-
+        if ($request->bearerToken()) {
+            return response()->json($blogs);
+        }
         
         return view('blogs.list', [
             'blogs' => $blogs,

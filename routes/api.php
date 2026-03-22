@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\OfferController;
 
 Route::post('/signup', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -12,6 +14,8 @@ Route::post('/vendor-login', [AuthController::class, 'vendorlogin']);
 Route::get('/cities', [LocationController::class, 'cities']);
 Route::get('/localaddresses', [LocationController::class, 'localaddresses']);
 Route::get('/home', [AuthController::class, 'home']);
+Route::get('/blogs', [BlogController::class, 'list']);
+Route::get('/offers', [OfferController::class, 'list']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);

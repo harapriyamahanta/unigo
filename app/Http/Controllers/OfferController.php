@@ -12,7 +12,9 @@ class OfferController extends Controller
     {   
         $offers = Offer::get();
 
-        
+        if ($request->bearerToken()) {
+            return response()->json($offers);
+        }
         return view('offers.list', [
             'offers' => $offers,
             'page' => 'Offers'
