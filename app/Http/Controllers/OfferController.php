@@ -8,7 +8,7 @@ use Spatie\Image\Image;
 
 class OfferController extends Controller
 {
-    public function list(Request $request): View|JsonResponse
+    public function list(Request $request)
     {   
         $offers = Offer::get();
 
