@@ -224,7 +224,7 @@
                                                         </div>
                                                     </li>
                                                 </ul>                                         
-                                                    
+                                                   <ul> 
                                                     <li class="bottom-button">
                                                         <button  class="btn addZoneBtn">Add Blog</button>
                                                     </li>
