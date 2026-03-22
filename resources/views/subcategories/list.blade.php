@@ -168,20 +168,16 @@
 <script src="{{asset('assets/js/script.js')}}"></script>
 <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script> -->
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script> -->
+ <link rel="stylesheet" href="{{asset('assets/richtexteditor/rte_theme_default.css')}}" />
+<script type="text/javascript" src="{{asset('assets/richtexteditor/rte.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/richtexteditor/plugins/all_plugins.js')}}"></script>
    
 <script>
 
-   $('#zone-modal').on('shown.bs.modal', function() {
-    alert('11');
-  //$('#desc').summernote();
-  tinymce.init({
-            selector: '#desc', // targets the textarea with id 'myeditor'
-            plugins: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | checklist outdent indent | tinycomments | link image media table | code',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist bullist numlist indent outdent | removeformat | code',
-            /* ... more configuration options ... */
-        });
-})
+  var editor1cfg = {}
+	editor1cfg.toolbar = "basic";
+	var editor1 = new RichTextEditor("#desc", editor1cfg);
 function openEdit (item){
     //console.log(item,'item');
     $('#zone-modal').modal('show');
