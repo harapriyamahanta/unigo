@@ -93,7 +93,7 @@
                                            <form action="{{url('/store-offer')}}" id="myForm" method="post"  enctype="multipart/form-data">
                                                 @csrf
                                                 
-                                                <ul><li>
+                                                <!-- <ul><li>
                                                     <h5>Upload image</h5>
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
@@ -102,7 +102,7 @@
                                                     <span class="input-clear-button"></span>
                                                     </div>
                                                 </li>
-                                                </ul>
+                                                </ul> -->
                                                 <input type="hidden" id="zone_id" name="id" />
                                                  <ul>
                                                     <li class="item-content item-input">
@@ -177,7 +177,7 @@
                                                     </div>
                                                 </li>   
                                                 </ul>
-                                                <ul class="companyfield"><li>
+                                                <!-- <ul class="companyfield"><li>
                                                      <h5>Upload Company Logo</h5>
                                                     <div class="file-upload">
                                                         <img id="outputcompanyLogo" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
@@ -223,7 +223,7 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                </ul>                                         
+                                                </ul>                                          -->
                                                    <ul> 
                                                     <li class="bottom-button">
                                                         <button  class="btn addZoneBtn">Add Blog</button>
