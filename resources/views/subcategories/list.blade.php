@@ -201,8 +201,8 @@ function openEdit (item){
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
     $('#desc').html(item.description);
-    //initialData.location;
-    //quill.setContents(item.description);
+    initialData.location;
+    quill.setContents(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
 }
@@ -224,6 +224,13 @@ var loadFile = function(event) {
       URL.revokeObjectURL(output.src) // free memory
     }
   };
+  function beforeSubmit(){
+    const form = document.querySelector('form');
+form.addEventListener('formdata', (event) => {
+  // Append Quill content before submitting
+  event.formData.append('about', JSON.stringify(quill.getContents().ops));
+});
+  }
 </script>
 
 @endsection
