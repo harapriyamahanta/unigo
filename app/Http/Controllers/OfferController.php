@@ -3,44 +3,74 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Offer;
+use Spatie\Image\Image;
 
 class OfferController extends Controller
 {
     public function list(Request $request): View|JsonResponse
     {   
-        $banners = Banner::get();
+        $offers = Offer::get();
 
         
-        return view('banners.list', [
-            'banners' => $banners,
-            'page' => 'Banners'
+        return view('offers.list', [
+            'offers' => $offers,
+            'page' => 'Offers'
         ]);
         
     }
 
     public function store(Request $request)
     {   
+        if($request->id){
+            $offer = Offer::find($request->id);
+        }else{
+            $offer = new offer();
+        }
+        $offer->type = $request->type;
+        $offer->vendor_id = $request->vendor_id;
+        $offer->title = $request->title;
+        $offer->description = $request->description;
+        $offer->startDate = $request->startDate;
+        $offer->endDate = $request->endDate;
+        $offer->code = $request->code;
+        $offer->terms = $request->terms;
+        $offer->companyName = $request->companyName;
+        $offer->phone = $request->phone;
+        $offer->website = $request->website;
+        $offer->address = $request->address;
         if($request->image){
            $imageName = time().'.'.$request->image->extension();  
 
-        Image::load($request->image->path())
+            Image::load($request->image->path())
                 ->optimize()
-                ->save(public_path('storage/banners/'). $imageName);
-            $banners = new Banner();
-            $banners->banner = url('storage/banners/'. $imageName);
-            $banners->save();
+                ->save(public_path('storage/offers/'). $imageName);
+            
+            $offer->image = url('storage/offers/'. $imageName);
+            
         }
+        if($request->companyLogo){
+           $imageNamecompanyLogo = time().'.'.$request->companyLogo->extension();  
+
+            Image::load($request->companyLogo->path())
+                ->optimize()
+                ->save(public_path('storage/offers/'). $imageNamecompanyLogo);
+            
+            $offer->companyLogo = url('storage/offers/'. $imageNamecompanyLogo);
+            
+        }
+        $blog->save();
         
-        return redirect('/banners');
+        return redirect('/offers');
         
     }
 
     public function destroy(Request $request,$id): RedirectResponse
     {
-        $banner = Banner::find($id);
+        $banner = Offer::find($id);
         if($banner){
             $banner->delete();
         }
-        return Redirect::to('/banners');
+        return Redirect::to('/offers');
     }
 }

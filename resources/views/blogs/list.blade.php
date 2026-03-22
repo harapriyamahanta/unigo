@@ -22,11 +22,11 @@
         <!-- Pages -->
         <div class="social-media-col pages-list-col">         
                      <div class="chat-title">
-                        <div class="chat-list-title">
+                        <!-- <div class="chat-list-title">
                             <i><a href="{{url('/categories')}}" class="back link">
                                 <img src="{{asset('assets/img/left-arrow-big-black.svg')}}" alt=""></a>
                             </i> Back
-                        </div>
+                        </div> -->
                            
                         <div class="user">{{count($blogs)}} Blogs</div>
                     </div>
