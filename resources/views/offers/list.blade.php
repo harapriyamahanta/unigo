@@ -104,15 +104,7 @@
                                                 </li>
                                                 </ul>
                                                
-                                                <ul><li class="item-content companyfield">
-                                                     <h5>Upload Company Logo</h5>
-                                                    <div class="file-upload">
-                                                        <img id="outputcompanyLogo" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
-                                                    
-                                                    <input type="file"  name="companyLogo" accept="image/*" onchange="loadFilecompanyLogo(event)"  />
-                                                    <span class="input-clear-button"></span>
-                                                    </div>
-                                                </li>
+                                                
                                                 </ul>
                                                 <input type="hidden" id="zone_id" name="id" />
                                                  <ul>
@@ -155,15 +147,7 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="item-content item-input">
-                                                        <div class="item-col">
-                                                            <div class="item-title item-label">Image</div>
-                                                            <div class="item-input-wrap">
-                                                                <input type="file"  name="image" id="image" > 
-                                                                <span class="input-clear-button"></span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                    
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
                                                             <div class="item-title item-label">Code <span>*</span></div>
@@ -196,7 +180,16 @@
                                                     </div>
                                                 </li>   
 </ul>
-                                                <ul class="companyfield">
+    <ul class="companyfield"><li class="item-content ">
+                                                     <h5>Upload Company Logo</h5>
+                                                    <div class="file-upload">
+                                                        <img id="outputcompanyLogo" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
+                                                    
+                                                    <input type="file"  name="companyLogo" accept="image/*" onchange="loadFilecompanyLogo(event)"  />
+                                                    <span class="input-clear-button"></span>
+                                                    </div>
+                                                </li>                                            
+<ul class="companyfield">
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
                                                             <div class="item-title item-label">Company Name </div>
