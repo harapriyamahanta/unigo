@@ -28,7 +28,7 @@ class OfferController extends Controller
             $offer = new offer();
         }
         $offer->type = $request->type;
-        $offer->vendor_id = $request->vendor_id;
+        //$offer->vendor_id = $request->vendor_id;
         $offer->title = $request->title;
         $offer->description = $request->description;
         $offer->startDate = $request->startDate;
