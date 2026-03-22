@@ -140,7 +140,7 @@ class LocationController extends Controller
                 $user->city = $request->city;
                 $user->pincode = $request->pin;
                 $user->category = $request->category;
-                $user->isPrimary = $request->isPrimary=='true' ? 'True':'False';
+                $user->isPrimary = $request->isPrimary=='true' || $request->isPrimary ? 'True':'False';
                 $user->save();
             }else{
                 $user = new UserAddress();
@@ -151,7 +151,7 @@ class LocationController extends Controller
                 $user->city = $request->city;
                 $user->pincode = $request->pin;
                 $user->category = $request->category;
-                $user->isPrimary = $request->isPrimary=='true' ? 'True':'False';
+                $user->isPrimary = $request->isPrimary=='true' || $request->isPrimary ? 'True':'False';
                 $user->save();
 
             }
