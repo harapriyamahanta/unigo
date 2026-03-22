@@ -82,7 +82,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="popup custom-filter-popup">
-                                    <div class="setting-widget1">
+                                    <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
                                             <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
