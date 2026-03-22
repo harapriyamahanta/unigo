@@ -126,19 +126,18 @@
                                                     <div class="item-col">
                                                         <div class="item-title item-label">How it Works?</div>
                                                         <div class="item-input-wrap">
-                                                            <div 
+                                                            <textarea 
                                                                 id="desc"
                                                                 required
                                                                 name="description"
                                                              placeholder="CCTV installation and repair service, with assured quality standards">
-</div>
+                                                            </textarea>
                                                         </div>
                                                     </div>
-                                                    <input type="text" id="descTextarea" />
                                                 </li>                                            
                                                     
                                                     <li class="bottom-button">
-                                                        <button type="button" onClick="beforeSubmit()" class="btn addZoneBtn">Add Sub Category</button>
+                                                        <button  class="btn addZoneBtn">Add Sub Category</button>
                                                     </li>
                                                 </ul>
                                             
@@ -167,32 +166,12 @@
 
 <!-- Custom JS -->
 <script src="{{asset('assets/js/script.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 <script>
 
-    const initialData = {
-  name: 'Wall-E',
-  location: 'Earth',
-  // `about` is a Delta object
-  // Learn more at: https://quilljs.com/docs/delta
-  about: [
-    {
-      insert:
-        'A robot who has developed sentience, and is the only robot of his kind shown to be still functioning on Earth.\n',
-    },
-  ],
-};
-
-const quill = new Quill('#desc', {
-  modules: {
-    toolbar: [
-      ['bold', 'italic'],
-      ['link', 'blockquote', 'code-block', 'image'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-    ],
-  },
-  theme: 'snow',
+    $(document).ready(function() {
+  $('#desc').summernote();
 });
 function openEdit (item){
     //console.log(item,'item');
@@ -201,9 +180,7 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
-    //$('#desc').html(item.description);
-    initialData.location;
-    quill.setContents(initialData.about);
+    $('#desc').val(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
 }
