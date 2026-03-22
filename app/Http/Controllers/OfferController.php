@@ -59,7 +59,7 @@ class OfferController extends Controller
             $offer->companyLogo = url('storage/offers/'. $imageNamecompanyLogo);
             
         }
-        $blog->save();
+        $offer->save();
         
         return redirect('/offers');
         
