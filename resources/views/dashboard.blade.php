@@ -38,7 +38,7 @@
 													<i class="search-icon fas fa-map-marker-alt"></i>
 												</div>
 												<div class="item-col">
-													<input type="text" class="autocomplete" placeholder="Search By Location or Pin Code">
+													<input type="text" id="autocompleteInput" class="autocomplete" placeholder="Search By Location or Pin Code">
 												</div>
 											</li>
 										</ul>
