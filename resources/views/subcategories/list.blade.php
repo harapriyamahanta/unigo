@@ -90,7 +90,7 @@
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
                                             </div> -->
-                                           <form action="{{url('/store-subcategories')}}" method="post"  enctype="multipart/form-data">
+                                           <form action="{{url('/store-subcategories')}}" id="myForm" method="post"  enctype="multipart/form-data">
                                                 @csrf
                                                 <ul><li>
                                                     <div class="file-upload">
@@ -138,7 +138,7 @@
                                                 </li>                                            
                                                     
                                                     <li class="bottom-button">
-                                                        <button type="button" onClick="beforeSubmit" class="btn addZoneBtn">Add Sub Category</button>
+                                                        <button type="button" onClick="beforeSubmit()" class="btn addZoneBtn">Add Sub Category</button>
                                                     </li>
                                                 </ul>
                                             
@@ -231,8 +231,10 @@ form.addEventListener('formdata', (event) => {
   // Append Quill content before submitting
   event.formData.append('about', JSON.stringify(quill.getContents().ops));
   $('#descTextarea').val(JSON.stringify(quill.getContents().ops));
+  console.log(JSON.stringify(quill.getContents().ops));
 });
 form.submit();
+document.getElementById('myForm').submit();
   }
 </script>
 
