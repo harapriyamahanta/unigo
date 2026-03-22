@@ -196,13 +196,13 @@ function openEdit (item){
     $('#zone_id').val(item.id);
     $('.title').html('Edit Blog');
     $('.addZoneBtn').html('Update Blog');
-    $('#title').val(item.name);
+    $('#title').val(item.title);
     $('#date').val(item.date);
     $('#tag').val(item.tag);
     $('#desc').val(item.description);
     editor1.setHTMLCode(item.description);
     var output = document.getElementById('output');
-    output.src = item.image;
+    output.src = item.imageUrl;
 }
 function openAdd (){
    // console.log(item,'item');
