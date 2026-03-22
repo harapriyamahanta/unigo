@@ -22,7 +22,11 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {   
-        $blog = new Blog();
+        if($request->id){
+            $blog = Blog::find($request->id);
+        }else{
+            $blog = new Blog();
+        }
         $blog->tag = $request->tag;
         $blog->title = $request->title;
         $blog->description = $request->description;
@@ -32,7 +36,7 @@ class BlogController extends Controller
 
             Image::load($request->image->path())
                 ->optimize()
-                ->save(public_path('storage/banners/'). $imageName);
+                ->save(public_path('storage/blogs/'). $imageName);
             
             $blog->imageUrl = url('storage/blogs/'. $imageName);
             
