@@ -82,26 +82,15 @@
                                 Banners
                             </a>
                         </li>
-                        <li>
-                            <a class="" href="reviews.html">
-                                <span class="material-icons">access_time</span>
-                                Reviews
-                            </a>
-                        </li>
-                        <li>
-                            <a class="" href="reports.html">
-                                <span class="material-icons">access_time</span>
-                                Reports
-                            </a>
-                        </li> 
+                        
                        
-                        <li>
+                        <!-- <li>
                             <a class="" href="advertisements.html">
                                 <span class="material-icons">message</span>
                                 Advertisements
                             </a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a class="" href="notifications.html">
                                 <span class="material-icons">message</span>
                                 Notifications
@@ -118,20 +107,32 @@
                                 <span class="material-icons">insert_drive_file</span>
                                 Invoices
                             </a>
-                        </li>             
+                        </li>              -->
                         <li>
-                            <a class="" href="blog.html">
+                            <a class="" href="{{url('/blogs')}}">
                                 <span class="material-icons">insert_drive_file</span>
                                 Blog
                             </a>
                         </li>
                         <li>
-                            <a class="" href="pages.html">
+                            <a class="" href="{{url('/offers')}}">
                                 <span class="material-icons">insert_drive_file</span>
-                                Pages
+                                Offers
                             </a>
                         </li>
                         <li>
+                            <a class="" href="reviews.html">
+                                <span class="material-icons">access_time</span>
+                                Reviews
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="reports.html">
+                                <span class="material-icons">access_time</span>
+                                Reports
+                            </a>
+                        </li> 
+                        <!-- <li>
                             <a class="" href="social-media.html">
                                 <span class="material-icons">share</span>
                                 Social Media
@@ -142,7 +143,7 @@
                                 <span class="material-icons">lock_open</span>
                                 Change Password
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
 	        </div>
 
