@@ -104,7 +104,7 @@
                                                 </li>
                                                 </ul>
                                                
-                                                <ul><li class="item-content">
+                                                <ul><li class="item-content companyfield">
                                                      <h5>Upload Company Logo</h5>
                                                     <div class="file-upload">
                                                         <img id="outputcompanyLogo" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
@@ -129,8 +129,9 @@
                                                         <div class="item-col">
                                                             <div class="item-title item-label">Type <span>*</span></div>
                                                             <div class="item-input-wrap">
-                                                                <select id="type" name="type" required>
-                                                                    <option>Travel</option>
+                                                                <select id="type" name="type" required onchange="hideShowCompany()">
+                                                                    <option>app</option>
+                                                                    <option>external</option>
                                                                 </select>
                                                                 <span class="input-clear-button"></span>
                                                             </div>
@@ -193,7 +194,46 @@
 </textarea>
                                                         </div>
                                                     </div>
-                                                </li>                                            
+                                                </li>   
+</ul>
+                                                <ul class="companyfield">
+                                                    <li class="item-content item-input">
+                                                        <div class="item-col">
+                                                            <div class="item-title item-label">Company Name </div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="text"  name="companyName" id="companyName"  > 
+                                                                <span class="input-clear-button"></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-col">
+                                                            <div class="item-title item-label">Phone </div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="text"  name="phone" id="phone"  > 
+                                                                <span class="input-clear-button"></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-col">
+                                                            <div class="item-title item-label">Website </div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="text"  name="website" id="website"  > 
+                                                                <span class="input-clear-button"></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-col">
+                                                            <div class="item-title item-label">Address </div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="text"  name="address" id="address"  > 
+                                                                <span class="input-clear-button"></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>                                         
                                                     
                                                     <li class="bottom-button">
                                                         <button  class="btn addZoneBtn">Add Blog</button>
@@ -298,6 +338,15 @@ var loadFile = function(event) {
       URL.revokeObjectURL(output.src) // free memory
     }
   };
+
+  function hideShowCompany(){
+    var type = $('#type').val();
+    if(type=='external'){
+        $('.companyfield').show();
+    }else{
+        $('.companyfield').hide();
+    }
+  }
   
 </script>
 
