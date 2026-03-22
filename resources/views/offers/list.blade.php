@@ -94,7 +94,6 @@
                                                 @csrf
                                                 
                                                 <ul><li>
-                                                    <h5>Upload image</h5>
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
