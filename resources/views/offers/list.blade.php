@@ -92,8 +92,9 @@
                                             </div> -->
                                            <form action="{{url('/store-offer')}}" id="myForm" method="post"  enctype="multipart/form-data">
                                                 @csrf
-                                                <h5>Upload image</h5>
+                                                
                                                 <ul><li class="item-content">
+                                                    <h5>Upload image</h5>
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
@@ -102,12 +103,13 @@
                                                     </div>
                                                 </li>
                                                 </ul>
-                                                <h5>Upload Company Logo</h5>
+                                               
                                                 <ul><li class="item-content">
+                                                     <h5>Upload Company Logo</h5>
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
-                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)"  />
+                                                    <input type="file"  name="companyLogo" accept="image/*" onchange="loadFilecompanyLogo(event)"  />
                                                     <span class="input-clear-button"></span>
                                                     </div>
                                                 </li>
@@ -286,17 +288,14 @@ var loadFile = function(event) {
       URL.revokeObjectURL(output.src) // free memory
     }
   };
-  function beforeSubmit(){
-    const form = document.querySelector('form');
-form.addEventListener('formdata', (event) => {
-  // Append Quill content before submitting
-  event.formData.append('about', JSON.stringify(quill.getContents().ops));
-  $('#descTextarea').val(JSON.stringify(quill.getContents().ops));
-  console.log(JSON.stringify(quill.getContents().ops));
-});
-form.submit();
-document.getElementById('myForm').submit();
-  }
+  var loadFilecompanyLogo = function(event) {
+    var output = document.getElementById('outputcompanyLogo');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+  
 </script>
 
 @endsection
