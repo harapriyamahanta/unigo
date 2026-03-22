@@ -166,12 +166,21 @@
 
 <!-- Custom JS -->
 <script src="{{asset('assets/js/script.js')}}"></script>
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+<!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script> -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
+   
 <script>
 
    $('#zone-modal').on('shown.bs.modal', function() {
-  $('#desc').summernote();
+    alert('11');
+  //$('#desc').summernote();
+  tinymce.init({
+            selector: '#desc', // targets the textarea with id 'myeditor'
+            plugins: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | checklist outdent indent | tinycomments | link image media table | code',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist bullist numlist indent outdent | removeformat | code',
+            /* ... more configuration options ... */
+        });
 })
 function openEdit (item){
     //console.log(item,'item');
@@ -184,14 +193,14 @@ function openEdit (item){
    // $('#desc').summernote({focus: true});;
     var output = document.getElementById('output');
     output.src = item.image;
-    $('#desc').summernote({
-    dialogsInBody: true,
-    toolbar: [
-    ['style', ['bold', 'italic', 'underline', 'clear']],
-    // ... other options
-  ]
-    //,airMode: true
-    });
+//     $('#desc').summernote({
+//     dialogsInBody: true,
+//     toolbar: [
+//     ['style', ['bold', 'italic', 'underline', 'clear']],
+//     // ... other options
+//   ]
+//     //,airMode: true
+//     });
 }
 function openAdd (){
    // console.log(item,'item');
@@ -201,11 +210,11 @@ function openAdd (){
     $('.addZoneBtn').html('Add Sub Category');
     $('#subcategory').val('');
     $('#desc').val('');
-    $('#desc').summernote({
-        placeholder: 'Hello Bootstrap 4',
-        tabsize: 2,
-        height: 300
-      });
+    // $('#desc').summernote({
+    //     placeholder: 'Hello Bootstrap 4',
+    //     tabsize: 2,
+    //     height: 300
+    //   });
     var output = document.getElementById('output');
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
