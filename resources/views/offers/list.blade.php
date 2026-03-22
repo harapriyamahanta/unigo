@@ -258,7 +258,7 @@ function openEdit (item){
     editor1.setHTMLCode(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
-    var outputlogo = document.getElementById('outputlogo');
+    var outputlogo = document.getElementById('outputcompanyLogo');
     outputlogo.src = item.companyLogo;
 }
 function openAdd (){
@@ -280,6 +280,9 @@ function openAdd (){
     editor1.setHTMLCode("");
     var output = document.getElementById('output');
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
+
+    var outputcompanyLogo = document.getElementById('outputcompanyLogo');
+    outputcompanyLogo.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
 var loadFile = function(event) {
     var output = document.getElementById('output');
