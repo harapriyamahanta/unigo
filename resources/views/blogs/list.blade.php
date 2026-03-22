@@ -194,9 +194,11 @@ function openEdit (item){
     //console.log(item,'item');
     $('#zone-modal').modal('show');
     $('#zone_id').val(item.id);
-    $('.title').html('Edit Sub Category');
-    $('.addZoneBtn').html('Update Sub Category');
-    $('#subcategory').val(item.name);
+    $('.title').html('Edit Blog');
+    $('.addZoneBtn').html('Update Blog');
+    $('#title').val(item.name);
+    $('#date').val(item.date);
+    $('#tag').val(item.tag);
     $('#desc').val(item.description);
     editor1.setHTMLCode(item.description);
     var output = document.getElementById('output');
@@ -206,10 +208,13 @@ function openAdd (){
    // console.log(item,'item');
     $('#zone-modal').modal('show');
     $('#zone_id').val('');
-    $('.title').html('Add Sub Category');
-    $('.addZoneBtn').html('Add Sub Category');
-    $('#subcategory').val('');
+    $('.title').html('Add Blog');
+    $('.addZoneBtn').html('Add Blog');
+     $('#title').val('');
+    $('#date').val('');
+    $('#tag').val('');
     $('#desc').val('');
+    editor1.setHTMLCode("");
     var output = document.getElementById('output');
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
