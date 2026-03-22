@@ -51,10 +51,13 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\UserDetail', 'user_id');
     }
     public function useraddress(){
-        return $this->hasOne('App\Models\UserAddress', 'user_id');
+        return $this->hasMany('App\Models\UserAddress', 'user_id');
     }
     public function homeaddress(){
         return $this->hasOne('App\Models\UserAddress', 'user_id')->where('category','Home');
+    }
+    public function primaryaddress(){
+        return $this->hasOne('App\Models\UserAddress', 'user_id')->where('isPrimary','LIKE','%True%');
     }
      public function usersubcategory(){
         return $this->hasOne('App\Models\UserSubCategory', 'user_id');
