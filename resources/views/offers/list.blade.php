@@ -82,7 +82,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="popup custom-filter-popup">
-                                    <div class="setting-widget1">
+                                    <div class="setting-widget">
                                         <div class="list no-hairlines-md">         
                                             <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
@@ -92,7 +92,8 @@
                                             </div> -->
                                            <form action="{{url('/store-offer')}}" id="myForm" method="post"  enctype="multipart/form-data">
                                                 @csrf
-                                                <!-- <ul><li>
+                                                <h2>Upload image</h2>
+                                                <ul><li>
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
@@ -100,7 +101,17 @@
                                                     <span class="input-clear-button"></span>
                                                     </div>
                                                 </li>
-                                                </ul> -->
+                                                </ul>
+                                                <h2>Upload Company Logo</h2>
+                                                <ul><li>
+                                                    <div class="file-upload">
+                                                        <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
+                                                    
+                                                    <input type="file"  name="image" accept="image/*" onchange="loadFile(event)"  />
+                                                    <span class="input-clear-button"></span>
+                                                    </div>
+                                                </li>
+                                                </ul>
                                                 <input type="hidden" id="zone_id" name="id" />
                                                  <ul>
                                                     <li class="item-content item-input">
@@ -144,7 +155,7 @@
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
                                                             <div class="item-title item-label">Image</div>
-                                                            <div class="item-input-wrap1">
+                                                            <div class="item-input-wrap">
                                                                 <input type="file"  name="image" id="image" > 
                                                                 <span class="input-clear-button"></span>
                                                             </div>
