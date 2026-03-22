@@ -184,6 +184,10 @@ function openEdit (item){
    // $('#desc').summernote({focus: true});;
     var output = document.getElementById('output');
     output.src = item.image;
+    $('#desc').summernote({
+    dialogsInBody: true
+    //,airMode: true
+    });
 }
 function openAdd (){
    // console.log(item,'item');
