@@ -82,7 +82,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="popup custom-filter-popup">
-                                    <div class="setting-widget">
+                                    <div class="setting-widget1">
                                         <div class="list no-hairlines-md">         
                                             <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
@@ -233,23 +233,37 @@ function openEdit (item){
     $('.title').html('Edit Blog');
     $('.addZoneBtn').html('Update Blog');
     $('#title').val(item.title);
-    $('#date').val(item.date);
-    $('#tag').val(item.tag);
-    $('#desc').val(item.description);
+    $('#type').val(item.type);
+    $('#code').val(item.code);
+    $('#startDate').val(item.startDate);
+    $('#endDate').val(item.endDate);
+    $('#terms').val(item.terms);
+    $('#companyName').val(item.companyName);
+    $('#phone').val(item.phone);
+    $('#address').val(item.address);
+    $('#website').val(item.website);
     editor1.setHTMLCode(item.description);
     var output = document.getElementById('output');
-    output.src = item.imageUrl;
+    output.src = item.image;
+    var outputlogo = document.getElementById('outputlogo');
+    outputlogo.src = item.companyLogo;
 }
 function openAdd (){
    // console.log(item,'item');
     $('#zone-modal').modal('show');
     $('#zone_id').val('');
-    $('.title').html('Add Blog');
-    $('.addZoneBtn').html('Add Blog');
-     $('#title').val('');
-    $('#date').val('');
-    $('#tag').val('');
-    $('#desc').val('');
+    $('.title').html('Add Offer');
+    $('.addZoneBtn').html('Add Offer');
+    $('#title').val('');
+    $('#type').val('');
+    $('#code').val('');
+    $('#startDate').val('');
+    $('#endDate').val('');
+    $('#terms').val('');
+    $('#companyName').val('');
+    $('#phone').val('');
+    $('#address').val('');
+    $('#website').val('');
     editor1.setHTMLCode("");
     var output = document.getElementById('output');
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
