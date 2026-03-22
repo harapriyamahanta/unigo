@@ -49,8 +49,7 @@ class CategoryController extends Controller
 
     public function storesubcategory(Request $request)
     {
-    dd($request->all());   
-    if($request->id){
+        if($request->id){
             $subcategory = SubCategory::find($request->id);
         }else{
             $subcategory = new SubCategory();
