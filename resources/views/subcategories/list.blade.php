@@ -234,7 +234,7 @@ form.addEventListener('formdata', (event) => {
   console.log(JSON.stringify(quill.getContents().ops));
 });
 //form.submit();
-//document.getElementById('myForm').submit();
+document.getElementById('myForm').submit();
   }
 </script>
 
