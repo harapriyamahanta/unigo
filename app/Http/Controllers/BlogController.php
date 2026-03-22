@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Spatie\Image\Image;
 
 class BlogController extends Controller
 {
