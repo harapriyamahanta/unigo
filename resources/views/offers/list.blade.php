@@ -82,7 +82,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="popup custom-filter-popup">
-                                    <div class="setting-widget">
+                                    <div class="setting-widget1">
                                         <div class="list no-hairlines-md">         
                                             <!-- <div class="file-upload">
                                                 <a href="#" class="file-upload-img">
@@ -144,7 +144,7 @@
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
                                                             <div class="item-title item-label">Image</div>
-                                                            <div class="item-input-wrap">
+                                                            <div class="item-input-wrap1">
                                                                 <input type="file"  name="image" id="image" > 
                                                                 <span class="input-clear-button"></span>
                                                             </div>

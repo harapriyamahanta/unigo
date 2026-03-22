@@ -6102,3 +6102,13 @@ ul li span.trash-icon {
 		height: calc(100vh - 430px);
 	}
 }
+
+.setting-widget1 input, .setting-widget select {
+    border: 1px solid #CFCFCF;
+    border-radius: 6px;
+    height: 35px !important;
+    padding: 10px 10px !important;
+    font-size: 13px;
+    font-family: 'poppinsregular' !important;
+    width: 100%;
+}
