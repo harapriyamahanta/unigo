@@ -126,11 +126,12 @@
                                                     <div class="item-col">
                                                         <div class="item-title item-label">How it Works?</div>
                                                         <div class="item-input-wrap">
-                                                            <textarea 
+                                                            <div 
                                                                 id="desc"
                                                                 required
                                                                 name="description"
-                                                             placeholder="CCTV installation and repair service, with assured quality standards"></textarea>
+                                                             placeholder="CCTV installation and repair service, with assured quality standards">
+</div>
                                                         </div>
                                                     </div>
                                                 </li>                                            
@@ -200,6 +201,8 @@ function openEdit (item){
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
     $('#desc').val(item.description);
+    initialData.location;
+    quill.setContents(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
 }
