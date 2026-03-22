@@ -103,9 +103,6 @@
                                                     </div>
                                                 </li>
                                                 </ul>
-                                               
-                                                
-                                                </ul>
                                                 <input type="hidden" id="zone_id" name="id" />
                                                  <ul>
                                                     <li class="item-content item-input">
