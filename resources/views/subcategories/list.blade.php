@@ -171,7 +171,11 @@
 <script>
 
     $(document).ready(function() {
-  $('#desc').summernote();
+  $('#desc').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 400
+      });
 });
 function openEdit (item){
     //console.log(item,'item');
@@ -181,7 +185,11 @@ function openEdit (item){
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
     $('#desc').val(item.description);
-    $('#desc').summernote();
+    $('#desc').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 300
+      });
     var output = document.getElementById('output');
     output.src = item.image;
 }
@@ -193,7 +201,11 @@ function openAdd (){
     $('.addZoneBtn').html('Add Sub Category');
     $('#subcategory').val('');
     $('#desc').val('');
-    $('#desc').summernote();
+    $('#desc').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 300
+      });
     var output = document.getElementById('output');
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
