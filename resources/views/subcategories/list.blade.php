@@ -185,7 +185,11 @@ function openEdit (item){
     var output = document.getElementById('output');
     output.src = item.image;
     $('#desc').summernote({
-    dialogsInBody: true
+    dialogsInBody: true,
+    toolbar: [
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    // ... other options
+  ]
     //,airMode: true
     });
 }
