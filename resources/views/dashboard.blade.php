@@ -325,94 +325,27 @@
 
 	     <!-- Custom JS -->
 	    <script src="{{asset('assets/js/script.js')}}"></script>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1/dist/css/bootstrap-dark.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" type="module"></script>
+		<link href="https://cdn.jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/lekoala/bootstrap5-autocomplete@master/autocomplete.js"></script>
+
 <script>
-import Autocomplete from "https://cdn.jsdelivr.net/gh/lekoala/bootstrap5-autocomplete@master/autocomplete.js";
-  const opts = {
-    onSelectItem: console.log,
-  };
-  var src = [];
-  for (let i = 0; i < 50; i++) {
-    src.push({
-      title: "Option " + i,
-      id: "opt" + i,
-      data: {
-        key: i,
-      },
-    });
-  }
+ const items = [
+    { label: 'Option 1', value: 'opt1' },
+    { label: 'Option 2', value: 'opt2' },
+    { label: 'Another Option', value: 'opt3' },
+    { label: 'More Options Here', value: 'opt4' },
+  ];
+
+  // Initialize the autocomplete on the input field with class 'autocomplete'
   Autocomplete.init("input.autocomplete", {
-    items: src,
-    valueField: "id",
-    labelField: "title",
+    items: items, // Pass your data array
     highlightTyped: true,
-    onSelectItem: console.log,
-  });
-  document.getElementById("enableButton").addEventListener("click", (e) => {
-    e.preventDefault();
-    const el = document.getElementById("autocompleteInput");
-    const inst = Autocomplete.getInstance(el);
-    if (inst.isDisabled()) {
-      inst.enable();
-    } else {
-      inst.disable();
+    onSelectItem: function(item) {
+      console.log('Selected item:', item);
     }
   });
-  // We can use regular objects as source and customize label
-  new Autocomplete(document.getElementById("autocompleteRegularInput"), {
-    items: {
-      opt_some: "Some",
-      opt_value: "Value",
-      opt_here: "Here is a very long element that should be truncated",
-      opt_dia: "çaça"
-    },
-    onRenderItem: (item, label) => {
-      return label + " (" + item.value + ")";
-    },
-  });
-  new Autocomplete(document.getElementById("autocompleteDatalist"), opts);
-  new Autocomplete(document.getElementById("autocompleteRemote"), opts);
-  new Autocomplete(document.getElementById("autocompleteLiveRemote"), opts);
-</script>
-<style>
-  /* highlightTyped use mark */
-  .autocomplete-menu mark {
-    text-decoration: underline;
-    background: none;
-    color: currentColor;
-    padding: 0;
-  }
-
-  /* Optional nicer scrollbars */
-  .autocomplete-menu {
-    --scroller-color: 0, 0%;
-    --scroller-color-lightness: 80%;
-    --scroller-bg-lightness: 90%;
-    --scroller-hover-factor: 0.8;
-    --scroller-thumb: hsl(var(--scroller-color), var(--scroller-color-lightness));
-    /* Replicate hover for webkit */
-    --scroller-thumb-hover: hsl(var(--scroller-color), calc(var(--scroller-color-lightness) * var(--scroller-hover-factor)));
-    --scroller-background: hsl(var(--scroller-color), calc(var(--scroller-bg-lightness)));
-    scrollbar-color: var(--scroller-thumb) var(--scroller-background);
-    scrollbar-width: thin;
-  }
-
-  .autocomplete-menu::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .autocomplete-menu::-webkit-scrollbar-track {
-    background: var(--scroller-background);
-  }
-
-  .autocomplete-menu::-webkit-scrollbar-thumb {
-    background: var(--scroller-thumb);
-  }
-
-  .autocomplete-menu::-webkit-scrollbar-thumb:hover {
-    background: var(--scroller-thumb-hover);
-  }
-</style>
+  </script>
 
 @endsection
