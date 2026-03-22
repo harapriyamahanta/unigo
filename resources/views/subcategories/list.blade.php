@@ -233,7 +233,7 @@ form.addEventListener('formdata', (event) => {
   $('#descTextarea').val(JSON.stringify(quill.getContents().ops));
   console.log(JSON.stringify(quill.getContents().ops));
 });
-//form.submit();
+form.submit();
 document.getElementById('myForm').submit();
   }
 </script>
