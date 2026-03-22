@@ -201,8 +201,8 @@ function openEdit (item){
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
     $('#desc').html(item.description);
-    initialData.location;
-    quill.setContents(item.description);
+    //initialData.location;
+    //quill.setContents(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
 }
