@@ -28,7 +28,7 @@
                             </i> Back
                         </div>
                            
-                        <div class="user">{{count($subcateblogsgories)}} Blogs</div>
+                        <div class="user">{{count($blogs)}} Blogs</div>
                     </div>
                    
                     <!-- Searchbar with auto Search -->
