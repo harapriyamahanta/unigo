@@ -116,9 +116,7 @@
                                                         <div class="item-col">
                                                             <div class="item-title item-label">Tag <span>*</span></div>
                                                             <div class="item-input-wrap">
-                                                                <select id="tag" name="tag" required>
-                                                                    <option>Travel</option>
-                                                                </select>
+                                                                <input type="text"  name="tag" id="tag" required>
                                                                 <span class="input-clear-button"></span>
                                                             </div>
                                                         </div>
