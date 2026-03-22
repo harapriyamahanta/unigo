@@ -9,7 +9,7 @@
                 </i>
             </a>
         </div>
-        <div class="sliding custom-title">Blogs</div>
+        <div class="sliding custom-title">{{$category->name}} : SubCategories</div>
         <div class="right d-flex">
             <a href="javascript:void(0)" onClick="openAdd()" class="link icon-only" title="Add Category"><i class="material-icons">add</i></a>
             <a href="#" data-bs-toggle="dropdown" aria-expanded="true" class="link"><i class="material-icons">more_vert</i></a>
@@ -28,7 +28,7 @@
                             </i> Back
                         </div>
                            
-                        <div class="user">{{count($subcateblogsgories)}} Blogs</div>
+                        <div class="user">{{count($subcategories)}} Sub Categories</div>
                     </div>
                    
                     <!-- Searchbar with auto Search -->
@@ -41,7 +41,7 @@
                     <!-- Searchbar with auto Search end -->
                 <div class="list">
                     <ul>
-                        @foreach($blogs as $cat)
+                        @foreach($subcategories as $cat)
                         <li>
                             <span class="item-link item-content">
                                 <div class="item-avatar">
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="item-cat">
                                     <div class="item-title">
-                                        <a href="{{url('sub-categories/'.$cat->id)}}">{{$cat->title}}</a>
+                                        <a href="{{url('sub-categories/'.$cat->id)}}">{{$cat->name}}</a>
                                     </div>
                                 </div>
                                 <div class="right d-flex">                    
@@ -90,7 +90,7 @@
                                                     <span class="cam-icon"><img src="assets/img/placeholder-small.svg" alt=""></span>
                                                 </a>
                                             </div> -->
-                                           <form action="{{url('/store-blogs')}}" id="myForm" method="post"  enctype="multipart/form-data">
+                                           <form action="{{url('/store-subcategories')}}" id="myForm" method="post"  enctype="multipart/form-data">
                                                 @csrf
                                                 <ul><li>
                                                     <div class="file-upload">
@@ -105,49 +105,39 @@
                                                  <ul>
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
-                                                            <div class="item-title item-label">Title <span>*</span></div>
+                                                            <div class="item-title item-label">Category Name <span>*</span></div>
                                                             <div class="item-input-wrap">
-                                                                <input type="text"  name="title" id="title" required>
+                                                                <input type="text" placeholder="{{$category->name}}"  disabled>
                                                                 <span class="input-clear-button"></span>
                                                             </div>
                                                         </div>
                                                     </li>
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
-                                                            <div class="item-title item-label">Tag <span>*</span></div>
+                                                            <div class="item-title item-label">Sub Category Name <span>*</span></div>
                                                             <div class="item-input-wrap">
-                                                                <select id="tag" name="tag" required>
-                                                                    <option>Travel</option>
-                                                                </select>
+                                                                <input type="text" id="subcategory" name="subcategory" required>
+                                                                <input type="hidden" name="category" value="{{$category->id}}">
                                                                 <span class="input-clear-button"></span>
                                                             </div>
                                                         </div>
                                                     </li> 
-                                                     <li class="item-content item-input">
-                                                        <div class="item-col">
-                                                            <div class="item-title item-label">Date <span>*</span></div>
-                                                            <div class="item-input-wrap">
-                                                                <input type="date"  name="date" id="date" required> 
-                                                                <span class="input-clear-button"></span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
                                                     <li class="item-content-full item-input">
                                                     <div class="item-col">
-                                                        <div class="item-title item-label">Description</div>
+                                                        <div class="item-title item-label">How it Works?</div>
                                                         <div class="item-input-wrap">
                                                             <textarea 
                                                                 id="desc"
                                                                 required
                                                                 name="description"
-                                                             placeholder="">
+                                                             placeholder="CCTV installation and repair service, with assured quality standards">
 </textarea>
                                                         </div>
                                                     </div>
                                                 </li>                                            
                                                     
                                                     <li class="bottom-button">
-                                                        <button  class="btn addZoneBtn">Add Blog</button>
+                                                        <button  class="btn addZoneBtn">Add Sub Category</button>
                                                     </li>
                                                 </ul>
                                             

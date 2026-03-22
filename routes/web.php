@@ -9,6 +9,8 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\OfferController;
 
 Route::get('/', function () {
     return redirect('login');
@@ -49,6 +51,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/zones', [LocationController::class, 'zones'])->name('location.zones');
     Route::post('/store-zones', [LocationController::class, 'storeZone'])->name('location.zonestore');
     Route::get('/zones/delete/{id}', [LocationController::class, 'zoneDelete'])->name('location.zoneDelete');
+
+    Route::get('/blogs', [BlogController::class, 'list'])->name('blogs.list');
+    Route::post('/store-blogs', [BlogController::class, 'store'])->name('blogs.store');
+    Route::get('/blogs/delete/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
+
+    Route::get('/offers', [OfferController::class, 'list'])->name('offer.list');
+    Route::post('/store-offer', [OfferController::class, 'store'])->name('offer.store');
+    Route::get('/offer/delete/{id}', [OfferController::class, 'destroy'])->name('offer.destroy');
 
 
     Route::get('/locations', [LocationController::class, 'list'])->name('location.list');
