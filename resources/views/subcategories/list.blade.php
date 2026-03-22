@@ -176,7 +176,9 @@
 <script>
 
   var editor1cfg = {}
-	editor1cfg.toolbar = "basic";
+	editor1cfg.toolbar = "mytoolbar";
+	editor1cfg.toolbar_mytoolbar = "{bold,italic}|{fontname,fontsize}|{forecolor,backcolor}|{bullentpoints}|removeformat"
+		+ "#{undo,redo,fullscreenenter,fullscreenexit,togglemore}";
 	var editor1 = new RichTextEditor("#desc", editor1cfg);
 function openEdit (item){
     //console.log(item,'item');
