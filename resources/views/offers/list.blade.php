@@ -185,7 +185,7 @@
                                                     <input type="file"  name="companyLogo" accept="image/*" onchange="loadFilecompanyLogo(event)"  />
                                                     <span class="input-clear-button"></span>
                                                     </div>
-                                                </li></ul>                                            
+                                                </li></ul>   -->                                         
                                                 <ul class="companyfield">
                                                     <li class="item-content item-input">
                                                         <div class="item-col">
@@ -223,7 +223,7 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                </ul>                                          -->
+                                                </ul>                                          
                                                    <ul> 
                                                     <li class="bottom-button">
                                                         <button  class="btn addZoneBtn">Add Blog</button>
