@@ -179,7 +179,7 @@
 			editor1cfg.toolbar = "mytoolbar";
 			editor1cfg.toolbar_mytoolbar = "{bold,italic}|{fontname,fontsize}|{insertorderedlist,insertunorderedlist}|{forecolor,backcolor}|removeformat"
 				+ "#{undo,redo,fullscreenenter,fullscreenexit}";
-			var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
+			var editor1 = new RichTextEditor("#desc", editor1cfg);
 function openEdit (item){
     //console.log(item,'item');
     $('#zone-modal').modal('show');
