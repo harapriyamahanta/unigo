@@ -216,7 +216,7 @@
                                                         </div>
                                                     </li>
                                                 </ul> 
-                                                <ul class="companyfield">
+                                                <!-- <ul class="companyfield">
                                                     <li>
                                                      <h5>Upload Company Logo</h5>
                                                     <div class="file-upload">
@@ -226,7 +226,7 @@
                                                     <span class="input-clear-button"></span>
                                                     </div>
                                                     </li>
-                                                </ul>                                          
+                                                </ul>                                           -->
                                                    <ul> 
                                                     <li class="bottom-button">
                                                         <button  class="btn addZoneBtn">Add Blog</button>
