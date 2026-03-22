@@ -92,8 +92,8 @@
                                             </div> -->
                                            <form action="{{url('/store-offer')}}" id="myForm" method="post"  enctype="multipart/form-data">
                                                 @csrf
-                                                <h2>Upload image</h2>
-                                                <ul><li>
+                                                <h5>Upload image</h5>
+                                                <ul><li class="item-content">
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
@@ -102,8 +102,8 @@
                                                     </div>
                                                 </li>
                                                 </ul>
-                                                <h2>Upload Company Logo</h2>
-                                                <ul><li>
+                                                <h5>Upload Company Logo</h5>
+                                                <ul><li class="item-content">
                                                     <div class="file-upload">
                                                         <img id="output" src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid img-circle file-upload-img" width="300" height="300" alt="User Image">
                                                     
