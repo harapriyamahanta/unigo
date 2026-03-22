@@ -184,12 +184,8 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
-    $('#desc').val(item.description);
-    $('#desc').summernote({
-        placeholder: 'Hello Bootstrap 4',
-        tabsize: 2,
-        height: 300
-      });
+    //$('#desc').val(item.description);
+    $('#desc').summernote({focus: true});;
     var output = document.getElementById('output');
     output.src = item.image;
 }
