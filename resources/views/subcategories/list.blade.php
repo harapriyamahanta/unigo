@@ -134,10 +134,11 @@
 </div>
                                                         </div>
                                                     </div>
+                                                    <input type="text" id="descTextarea" />
                                                 </li>                                            
                                                     
                                                     <li class="bottom-button">
-                                                        <button class="btn addZoneBtn">Add Sub Category</button>
+                                                        <button type="button" onClick="beforeSubmit" class="btn addZoneBtn">Add Sub Category</button>
                                                     </li>
                                                 </ul>
                                             
@@ -229,7 +230,9 @@ var loadFile = function(event) {
 form.addEventListener('formdata', (event) => {
   // Append Quill content before submitting
   event.formData.append('about', JSON.stringify(quill.getContents().ops));
+  $('#descTextarea').val(JSON.stringify(quill.getContents().ops));
 });
+form.submit();
   }
 </script>
 
