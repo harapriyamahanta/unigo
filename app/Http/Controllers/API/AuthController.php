@@ -149,7 +149,8 @@ class AuthController extends Controller
             "email" => $request->user()->email,
             "gender" =>$request->user()?->userdetail?->gender,
             "dob"=> $request->user()?->userdetail?->dob, // DDMMYYYY (UI shows as DD/MM/YYYY)
-            "image"=> $request->user()?->userdetail?->profileImage
+            "image"=> $request->user()?->userdetail?->profileImage,
+            'address' => UserAddress::where('user_id',Auth::user()->id)->whereIN('isPrimary',['True',True])->first()
         ]);
     }
 

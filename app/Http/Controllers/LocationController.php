@@ -130,6 +130,9 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         if ($request->bearerToken()) {
+            if($request->isPrimary=='true'){
+            $alluserAddress = UserAddress::where('user_id',Auth::user()->id)->update(['isPrimary'=> 'False']);
+            }
             if($request->id){
                 $user = UserAddress::find($request->id);
                 $user->address = $request->street;
