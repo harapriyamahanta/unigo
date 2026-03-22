@@ -291,7 +291,9 @@ function openEdit (item){
     var output = document.getElementById('output');
     output.src = item.image;
     var outputlogo = document.getElementById('outputcompanyLogo');
+    if(outputlogo){
     outputlogo.src = item.companyLogo;
+    }
 }
 function openAdd (){
    // console.log(item,'item');
@@ -314,7 +316,9 @@ function openAdd (){
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 
     var outputcompanyLogo = document.getElementById('outputcompanyLogo');
+    if(outputcompanyLogo){
     outputcompanyLogo.src = 'assets/img/doctors/doctor-thumb-02.jpg';
+    }
 }
 var loadFile = function(event) {
     var output = document.getElementById('output');
