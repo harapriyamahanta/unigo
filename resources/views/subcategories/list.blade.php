@@ -29,7 +29,6 @@
                         </div>
                            
                         <div class="user">{{count($subcategories)}} Sub Categories</div>
-                        <div id="desc"></div>
                     </div>
                    
                     <!-- Searchbar with auto Search -->
@@ -127,12 +126,12 @@
                                                     <div class="item-col">
                                                         <div class="item-title item-label">How it Works?</div>
                                                         <div class="item-input-wrap">
-                                                            <textarea 
+                                                            <div 
                                                                 id="desc"
                                                                 required
                                                                 name="description"
                                                              placeholder="CCTV installation and repair service, with assured quality standards">
-                                                            </textarea>
+</div>
                                                         </div>
                                                     </div>
                                                 </li>                                            
