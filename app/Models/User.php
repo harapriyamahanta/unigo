@@ -51,7 +51,7 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\UserDetail', 'user_id');
     }
     public function useraddress(){
-        return $this->hasMany('App\Models\UserAddress', 'user_id');
+        return $this->hasOne('App\Models\UserAddress', 'user_id');
     }
     public function homeaddress(){
         return $this->hasOne('App\Models\UserAddress', 'user_id')->where('category','Home');
