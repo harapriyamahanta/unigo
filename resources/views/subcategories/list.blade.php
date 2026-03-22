@@ -177,7 +177,7 @@
 
   var editor1cfg = {}
 			editor1cfg.toolbar = "mytoolbar";
-			editor1cfg.toolbar_mytoolbar = "{bold,italic}|{fontname,fontsize}|{insertimage}|{insertorderedlist,insertunorderedlist}|{insertcode}|{forecolor,backcolor}|removeformat"
+			editor1cfg.toolbar_mytoolbar = "{bold,italic}|{fontname,fontsize}|{insertimage}|{insertorderedlist,insertunorderedlist}|{code}|{forecolor,backcolor}|removeformat"
 				+ "#{undo,redo,fullscreenenter,fullscreenexit}";
 			var editor1 = new RichTextEditor("#desc", editor1cfg);
 function openEdit (item){
