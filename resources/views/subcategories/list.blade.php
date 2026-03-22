@@ -126,12 +126,12 @@
                                                     <div class="item-col">
                                                         <div class="item-title item-label">How it Works?</div>
                                                         <div class="item-input-wrap">
-                                                            <div 
+                                                            <textarea 
                                                                 id="desc"
                                                                 required
                                                                 name="description"
                                                              placeholder="CCTV installation and repair service, with assured quality standards">
-</div>
+</textarea>
                                                         </div>
                                                     </div>
                                                 </li>                                            
