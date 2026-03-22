@@ -187,18 +187,9 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
-    //$('#desc').val(item.description);
-   // $('#desc').summernote({focus: true});;
+    $('#desc').val(item.description);
     var output = document.getElementById('output');
     output.src = item.image;
-//     $('#desc').summernote({
-//     dialogsInBody: true,
-//     toolbar: [
-//     ['style', ['bold', 'italic', 'underline', 'clear']],
-//     // ... other options
-//   ]
-//     //,airMode: true
-//     });
 }
 function openAdd (){
    // console.log(item,'item');
@@ -208,11 +199,6 @@ function openAdd (){
     $('.addZoneBtn').html('Add Sub Category');
     $('#subcategory').val('');
     $('#desc').val('');
-    // $('#desc').summernote({
-    //     placeholder: 'Hello Bootstrap 4',
-    //     tabsize: 2,
-    //     height: 300
-    //   });
     var output = document.getElementById('output');
     output.src = 'assets/img/doctors/doctor-thumb-02.jpg';
 }
