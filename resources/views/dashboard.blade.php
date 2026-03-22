@@ -38,7 +38,7 @@
 													<i class="search-icon fas fa-map-marker-alt"></i>
 												</div>
 												<div class="item-col">
-													<input type="text" placeholder="Search By Location or Pin Code">
+													<input type="text" class="autocomplete" placeholder="Search By Location or Pin Code">
 												</div>
 											</li>
 										</ul>
@@ -325,5 +325,94 @@
 
 	     <!-- Custom JS -->
 	    <script src="{{asset('assets/js/script.js')}}"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1/dist/css/bootstrap-dark.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" type="module"></script>
+<script>
+import Autocomplete from "https://cdn.jsdelivr.net/gh/lekoala/bootstrap5-autocomplete@master/autocomplete.js";
+  const opts = {
+    onSelectItem: console.log,
+  };
+  var src = [];
+  for (let i = 0; i < 50; i++) {
+    src.push({
+      title: "Option " + i,
+      id: "opt" + i,
+      data: {
+        key: i,
+      },
+    });
+  }
+  Autocomplete.init("input.autocomplete", {
+    items: src,
+    valueField: "id",
+    labelField: "title",
+    highlightTyped: true,
+    onSelectItem: console.log,
+  });
+  document.getElementById("enableButton").addEventListener("click", (e) => {
+    e.preventDefault();
+    const el = document.getElementById("autocompleteInput");
+    const inst = Autocomplete.getInstance(el);
+    if (inst.isDisabled()) {
+      inst.enable();
+    } else {
+      inst.disable();
+    }
+  });
+  // We can use regular objects as source and customize label
+  new Autocomplete(document.getElementById("autocompleteRegularInput"), {
+    items: {
+      opt_some: "Some",
+      opt_value: "Value",
+      opt_here: "Here is a very long element that should be truncated",
+      opt_dia: "çaça"
+    },
+    onRenderItem: (item, label) => {
+      return label + " (" + item.value + ")";
+    },
+  });
+  new Autocomplete(document.getElementById("autocompleteDatalist"), opts);
+  new Autocomplete(document.getElementById("autocompleteRemote"), opts);
+  new Autocomplete(document.getElementById("autocompleteLiveRemote"), opts);
+</script>
+<style>
+  /* highlightTyped use mark */
+  .autocomplete-menu mark {
+    text-decoration: underline;
+    background: none;
+    color: currentColor;
+    padding: 0;
+  }
+
+  /* Optional nicer scrollbars */
+  .autocomplete-menu {
+    --scroller-color: 0, 0%;
+    --scroller-color-lightness: 80%;
+    --scroller-bg-lightness: 90%;
+    --scroller-hover-factor: 0.8;
+    --scroller-thumb: hsl(var(--scroller-color), var(--scroller-color-lightness));
+    /* Replicate hover for webkit */
+    --scroller-thumb-hover: hsl(var(--scroller-color), calc(var(--scroller-color-lightness) * var(--scroller-hover-factor)));
+    --scroller-background: hsl(var(--scroller-color), calc(var(--scroller-bg-lightness)));
+    scrollbar-color: var(--scroller-thumb) var(--scroller-background);
+    scrollbar-width: thin;
+  }
+
+  .autocomplete-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .autocomplete-menu::-webkit-scrollbar-track {
+    background: var(--scroller-background);
+  }
+
+  .autocomplete-menu::-webkit-scrollbar-thumb {
+    background: var(--scroller-thumb);
+  }
+
+  .autocomplete-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--scroller-thumb-hover);
+  }
+</style>
 
 @endsection
