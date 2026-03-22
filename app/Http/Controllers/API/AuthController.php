@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\UserDetail;
 use \Throwable;
+use Illuminate\Support\Facades\DB;
   
 
 class AuthController extends Controller
@@ -32,12 +33,37 @@ class AuthController extends Controller
         }
 
         $otp = rand(1000,9999);
-        $user = new User();
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->type = 'user';
-        $user->verifyOtp = $otp;
-        $user->save();
+        DB::beginTransaction();
+        try {
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->type = 'user';
+            $user->verifyOtp = $otp;
+            $user->save();
+            $myaddress = new UserAddress();
+            $myaddress->category = 'Home';
+            $myaddress->user_id = $user->id;
+            $myaddress->isPrimary = True;
+            $myaddress->street = $request->street;
+            $myaddress->city = $request->city;
+            $myaddress->pincode = $request->pin;
+            $myaddress->save();
+            $userdetail = new UserDetail();
+            $userdetail->user_id = $user->id;
+            $userdetail->name = $request->name;
+            $userdetail->email = $request->email;
+            $userdetail->phone = $request->phone;
+            $userdetail->dob = $request->dob;
+            $userdetail->gender = $request->gender;
+            $userdetail->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // Handle the exception
+        }
+
 
        // $token = $user->createToken('MyAppToken')->plainTextToken;
 
