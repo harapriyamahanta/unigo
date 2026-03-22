@@ -7,7 +7,7 @@ use App\Models\Blog;
 
 class BlogController extends Controller
 {
-    public function list(Request $request): View|JsonResponse
+    public function list(Request $request)
     {   
         $blogs = Blog::get();
 
