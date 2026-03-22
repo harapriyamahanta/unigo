@@ -170,13 +170,9 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 <script>
 
-    $(document).ready(function() {
-  $('#desc').summernote({
-        placeholder: 'Hello Bootstrap 4',
-        tabsize: 2,
-        height: 400
-      });
-});
+   $('#zone-modal').on('shown.bs.modal', function() {
+  $('#desc').summernote();
+})
 function openEdit (item){
     //console.log(item,'item');
     $('#zone-modal').modal('show');
@@ -185,7 +181,7 @@ function openEdit (item){
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
     //$('#desc').val(item.description);
-    $('#desc').summernote({focus: true});;
+   // $('#desc').summernote({focus: true});;
     var output = document.getElementById('output');
     output.src = item.image;
 }
