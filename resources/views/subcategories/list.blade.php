@@ -29,6 +29,7 @@
                         </div>
                            
                         <div class="user">{{count($subcategories)}} Sub Categories</div>
+                        <div id="desc"></div>
                     </div>
                    
                     <!-- Searchbar with auto Search -->
