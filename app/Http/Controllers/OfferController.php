@@ -34,7 +34,7 @@ class OfferController extends Controller
         $offer->startDate = $request->startDate;
         $offer->endDate = $request->endDate;
         $offer->code = $request->code;
-        $offer->terms = $request->terms;
+        $offer->term = $request->terms;
         $offer->companyName = $request->companyName;
         $offer->phone = $request->phone;
         $offer->website = $request->website;
