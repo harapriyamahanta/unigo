@@ -200,7 +200,7 @@ function openEdit (item){
     $('.title').html('Edit Sub Category');
     $('.addZoneBtn').html('Update Sub Category');
     $('#subcategory').val(item.name);
-    $('#desc').val(item.description);
+    $('#desc').html(item.description);
     initialData.location;
     quill.setContents(item.description);
     var output = document.getElementById('output');
