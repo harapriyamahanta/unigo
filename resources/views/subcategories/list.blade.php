@@ -170,16 +170,16 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script> -->
 <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script> -->
  <link rel="stylesheet" href="{{asset('assets/richtexteditor/rte_theme_default.css')}}" />
-<script type="text/javascript" src="{{asset('assets/richtexteditor/rte.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/richtexteditor/rte-unigo.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/richtexteditor/plugins/all_plugins.js')}}"></script>
    
 <script>
 
   var editor1cfg = {}
-	editor1cfg.toolbar = "mytoolbar";
-	editor1cfg.toolbar_mytoolbar = "{bold,italic}|{fontname,fontsize}|{forecolor,backcolor}|{bullentpoints}|removeformat"
-		+ "#{undo,redo,fullscreenenter,fullscreenexit,togglemore}";
-	var editor1 = new RichTextEditor("#desc", editor1cfg);
+			editor1cfg.toolbar = "mytoolbar";
+			editor1cfg.toolbar_mytoolbar = "{bold,italic}|{fontname,fontsize}|{insertorderedlist,insertunorderedlist}|{forecolor,backcolor}|removeformat"
+				+ "#{undo,redo,fullscreenenter,fullscreenexit}";
+			var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
 function openEdit (item){
     //console.log(item,'item');
     $('#zone-modal').modal('show');
